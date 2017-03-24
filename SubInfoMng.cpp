@@ -12,6 +12,7 @@
 
 SubInfoMng::SubInfoMng(){
     root=new TreeNode();
+
 }
 
 SubInfoMng::~SubInfoMng(){
