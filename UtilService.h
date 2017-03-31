@@ -22,6 +22,7 @@ public:
     //changeTopic();// 将 A/B/..../local 修改为 B/A/.../remote
     // procMsg(Message msg);// 主逻辑 处理消息流程
     void procMsgJson(string str);
+    std::wstring getMsgJsonStr();//由内部数据产生json字符串
     std::string ws2s(const std::wstring& ws);
     std::wstring s2ws(const std::string& s);
 

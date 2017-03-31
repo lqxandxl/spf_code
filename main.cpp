@@ -17,7 +17,11 @@ int main() {
         cout<<(vec[i])->singleTopic<<endl;
     }
     UtilService us;
-    string str="{\"msg\":{\"from\":\"18610191733\",\"to\":\"88725004772\",\"mtype\": \"common\",\"mcontent\": \"give me the money\" } }";
-    us.procMsgJson(str);
+    //string str="{\"msg\":{\"from\":\"18610191733\",\"to\":\"88725004772\",\"mtype\": \"common\",\"mcontent\": \"give me the money\" } }";
+    wstring str=us.getMsgJsonStr();
+    //wcout<<str<<endl;
+    string sstr=us.ws2s(str);
+    cout<<sstr<<endl;
+    us.procMsgJson(sstr);
     return 0;
 }
