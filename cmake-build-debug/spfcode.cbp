@@ -82,6 +82,18 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/spfcode/JSON.cpp">
+			<Option target="spfcode"/>
+		</Unit>
+		<Unit filename="D:/spfcode/JSON.h">
+			<Option target="spfcode"/>
+		</Unit>
+		<Unit filename="D:/spfcode/JSONValue.cpp">
+			<Option target="spfcode"/>
+		</Unit>
+		<Unit filename="D:/spfcode/JSONValue.h">
+			<Option target="spfcode"/>
+		</Unit>
 		<Unit filename="D:/spfcode/Message.h">
 			<Option target="spfcode"/>
 		</Unit>

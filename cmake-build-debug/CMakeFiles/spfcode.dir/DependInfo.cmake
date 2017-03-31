@@ -4,6 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "D:/spfcode/JSON.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/JSON.cpp.obj"
+  "D:/spfcode/JSONValue.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/JSONValue.cpp.obj"
   "D:/spfcode/SubInfoMng.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj"
   "D:/spfcode/TreeNode.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/TreeNode.cpp.obj"
   "D:/spfcode/UtilService.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/UtilService.cpp.obj"

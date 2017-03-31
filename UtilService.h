@@ -8,6 +8,9 @@
 
 #include <string>
 #include <vector>
+#include "JSON.h"
+#include "JSONValue.h"
+
 
 using namespace std;
 
@@ -18,6 +21,9 @@ public:
     //assembleTopic();
     //changeTopic();// 将 A/B/..../local 修改为 B/A/.../remote
     // procMsg(Message msg);// 主逻辑 处理消息流程
+    void procMsgJson(string str);
+    std::string ws2s(const std::wstring& ws);
+    std::wstring s2ws(const std::string& s);
 
 };
 

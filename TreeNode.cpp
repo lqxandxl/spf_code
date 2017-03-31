@@ -26,7 +26,7 @@ void TreeNode :: addChild(TreeNode * child){  //增加孩子
 vector <TreeNode * >    TreeNode :: getAllDes(){  //拿到所有子孙以及自己
     int len=childList.size();
     vector <TreeNode * > res;
-    res.push_back(this);
+    res.push_back((TreeNode *&&) this);
     int childlen;
     if(len>0){
         for(int i=0;i<len;i++){

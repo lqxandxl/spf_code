@@ -122,6 +122,60 @@ spfcode/fast:
 	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/build
 .PHONY : spfcode/fast
 
+JSON.obj: JSON.cpp.obj
+
+.PHONY : JSON.obj
+
+# target to build an object file
+JSON.cpp.obj:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/JSON.cpp.obj
+.PHONY : JSON.cpp.obj
+
+JSON.i: JSON.cpp.i
+
+.PHONY : JSON.i
+
+# target to preprocess a source file
+JSON.cpp.i:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/JSON.cpp.i
+.PHONY : JSON.cpp.i
+
+JSON.s: JSON.cpp.s
+
+.PHONY : JSON.s
+
+# target to generate assembly for a file
+JSON.cpp.s:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/JSON.cpp.s
+.PHONY : JSON.cpp.s
+
+JSONValue.obj: JSONValue.cpp.obj
+
+.PHONY : JSONValue.obj
+
+# target to build an object file
+JSONValue.cpp.obj:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/JSONValue.cpp.obj
+.PHONY : JSONValue.cpp.obj
+
+JSONValue.i: JSONValue.cpp.i
+
+.PHONY : JSONValue.i
+
+# target to preprocess a source file
+JSONValue.cpp.i:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/JSONValue.cpp.i
+.PHONY : JSONValue.cpp.i
+
+JSONValue.s: JSONValue.cpp.s
+
+.PHONY : JSONValue.s
+
+# target to generate assembly for a file
+JSONValue.cpp.s:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/JSONValue.cpp.s
+.PHONY : JSONValue.cpp.s
+
 SubInfoMng.obj: SubInfoMng.cpp.obj
 
 .PHONY : SubInfoMng.obj
@@ -239,6 +293,12 @@ help:
 	@echo ... rebuild_cache
 	@echo ... spfcode
 	@echo ... edit_cache
+	@echo ... JSON.obj
+	@echo ... JSON.i
+	@echo ... JSON.s
+	@echo ... JSONValue.obj
+	@echo ... JSONValue.i
+	@echo ... JSONValue.s
 	@echo ... SubInfoMng.obj
 	@echo ... SubInfoMng.i
 	@echo ... SubInfoMng.s

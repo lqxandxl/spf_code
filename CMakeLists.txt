@@ -5,5 +5,6 @@ set(SOURCE_FILES main.cpp
         UtilService.h
         TreeNode.h SubInfoMng.h Message.h
         SubInfoMng.cpp
-        TreeNode.cpp UtilService.cpp)
+        TreeNode.cpp UtilService.cpp
+        JSON.cpp JSON.h JSONValue.cpp JSONValue.h)
 add_executable(spfcode ${SOURCE_FILES})

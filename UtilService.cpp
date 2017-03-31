@@ -28,4 +28,85 @@ void UtilService:: showVec(vector<string> * vec){
         cout<< v[i] << endl;
     }
 
+
+
+}
+/* 样例
+{
+  "msg":{
+     "from":"18610191733",
+     "to":"88725004772",
+     "mtype": "common",
+     "mcontent": "give me the money"
+  }
+}
+*/
+void UtilService :: procMsgJson(string str){
+    JSONValue * recjv=JSON::Parse(str.c_str());
+    if(recjv==NULL||!recjv->IsObject()) return ;
+    JSONObject root=recjv->AsObject();
+    JSONObject::const_iterator it=root.find(L"msg");
+    if(it!=root.end()){//have found
+        if(it->second->IsObject()){ //it->second is JSONValue *
+            JSONObject msg=it->second->AsObject();
+            JSONObject::const_iterator itfrom=msg.find(L"from");
+            if(itfrom!=msg.end()) {
+                wstring strfrom = itfrom->second->AsString();
+                //操作赋值给内部结构
+                wcout<<strfrom<<endl;
+                string sfrom=ws2s(strfrom);
+                cout<<sfrom<<endl;
+                wstring test=s2ws(sfrom);
+                wcout<<test<<endl;
+            }
+            JSONObject::const_iterator itto=msg.find(L"to");
+            if(itto!=msg.end()){
+                wstring strto=itto->second->AsString();
+                wcout<<strto<<endl;
+            }
+            JSONObject::const_iterator itmtype=msg.find(L"mtype");
+            if(itto!=msg.end()){
+                wstring strmtype=itmtype->second->AsString();
+                wcout<<strmtype<<endl;
+            }
+            JSONObject::const_iterator itmcontent=msg.find(L"mcontent");
+            if(itmcontent!=msg.end()){
+                wstring strmcontent=itmcontent->second->AsString();
+                wcout<<strmcontent<<endl;
+            }
+
+        }
+    }
+
+
+    return;
+}
+
+std::string UtilService::ws2s(const std::wstring& ws)
+{
+    std::string curLocale = setlocale(LC_ALL, NULL);        // curLocale = "C";
+    setlocale(LC_ALL, "chs");
+    const wchar_t* _Source = ws.c_str();
+    size_t _Dsize = 2 * ws.size() + 1;
+    char *_Dest = new char[_Dsize];
+    memset(_Dest,0,_Dsize);
+    wcstombs(_Dest,_Source,_Dsize);
+    std::string result = _Dest;
+    delete []_Dest;
+    setlocale(LC_ALL, curLocale.c_str());
+    return result;
+}
+
+std::wstring UtilService::s2ws(const std::string& s)
+{
+    setlocale(LC_ALL, "chs");
+    const char* _Source = s.c_str();
+    size_t _Dsize = s.size() + 1;
+    wchar_t *_Dest = new wchar_t[_Dsize];
+    wmemset(_Dest, 0, _Dsize);
+    mbstowcs(_Dest,_Source,_Dsize);
+    std::wstring result = _Dest;
+    delete []_Dest;
+    setlocale(LC_ALL, "C");
+    return result;
 }
