@@ -6,5 +6,5 @@ set(SOURCE_FILES main.cpp
         TreeNode.h SubInfoMng.h Message.h
         SubInfoMng.cpp
         TreeNode.cpp UtilService.cpp
-        JSON.cpp JSON.h JSONValue.cpp JSONValue.h)
+        JSON.cpp JSON.h JSONValue.cpp JSONValue.h Proxy.h Proxy.cpp PublishMng.h PublishMng.cpp Message.cpp)
 add_executable(spfcode ${SOURCE_FILES})

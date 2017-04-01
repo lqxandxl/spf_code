@@ -9,6 +9,24 @@ CMakeFiles/spfcode.dir/JSONValue.cpp.obj: ../JSON.h
 CMakeFiles/spfcode.dir/JSONValue.cpp.obj: ../JSONValue.cpp
 CMakeFiles/spfcode.dir/JSONValue.cpp.obj: ../JSONValue.h
 
+CMakeFiles/spfcode.dir/Message.cpp.obj: ../Message.cpp
+CMakeFiles/spfcode.dir/Message.cpp.obj: ../Message.h
+
+CMakeFiles/spfcode.dir/Proxy.cpp.obj: ../JSON.h
+CMakeFiles/spfcode.dir/Proxy.cpp.obj: ../JSONValue.h
+CMakeFiles/spfcode.dir/Proxy.cpp.obj: ../Message.h
+CMakeFiles/spfcode.dir/Proxy.cpp.obj: ../Proxy.cpp
+CMakeFiles/spfcode.dir/Proxy.cpp.obj: ../Proxy.h
+CMakeFiles/spfcode.dir/Proxy.cpp.obj: ../PublishMng.h
+CMakeFiles/spfcode.dir/Proxy.cpp.obj: ../UtilService.h
+
+CMakeFiles/spfcode.dir/PublishMng.cpp.obj: ../JSON.h
+CMakeFiles/spfcode.dir/PublishMng.cpp.obj: ../JSONValue.h
+CMakeFiles/spfcode.dir/PublishMng.cpp.obj: ../Message.h
+CMakeFiles/spfcode.dir/PublishMng.cpp.obj: ../PublishMng.cpp
+CMakeFiles/spfcode.dir/PublishMng.cpp.obj: ../PublishMng.h
+CMakeFiles/spfcode.dir/PublishMng.cpp.obj: ../UtilService.h
+
 CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj: ../JSON.h
 CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj: ../JSONValue.h
 CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj: ../SubInfoMng.cpp
@@ -26,6 +44,9 @@ CMakeFiles/spfcode.dir/UtilService.cpp.obj: ../UtilService.h
 
 CMakeFiles/spfcode.dir/main.cpp.obj: ../JSON.h
 CMakeFiles/spfcode.dir/main.cpp.obj: ../JSONValue.h
+CMakeFiles/spfcode.dir/main.cpp.obj: ../Message.h
+CMakeFiles/spfcode.dir/main.cpp.obj: ../Proxy.h
+CMakeFiles/spfcode.dir/main.cpp.obj: ../PublishMng.h
 CMakeFiles/spfcode.dir/main.cpp.obj: ../SubInfoMng.h
 CMakeFiles/spfcode.dir/main.cpp.obj: ../TreeNode.h
 CMakeFiles/spfcode.dir/main.cpp.obj: ../UtilService.h

@@ -94,7 +94,22 @@
 		<Unit filename="D:/spfcode/JSONValue.h">
 			<Option target="spfcode"/>
 		</Unit>
+		<Unit filename="D:/spfcode/Message.cpp">
+			<Option target="spfcode"/>
+		</Unit>
 		<Unit filename="D:/spfcode/Message.h">
+			<Option target="spfcode"/>
+		</Unit>
+		<Unit filename="D:/spfcode/Proxy.cpp">
+			<Option target="spfcode"/>
+		</Unit>
+		<Unit filename="D:/spfcode/Proxy.h">
+			<Option target="spfcode"/>
+		</Unit>
+		<Unit filename="D:/spfcode/PublishMng.cpp">
+			<Option target="spfcode"/>
+		</Unit>
+		<Unit filename="D:/spfcode/PublishMng.h">
 			<Option target="spfcode"/>
 		</Unit>
 		<Unit filename="D:/spfcode/SubInfoMng.cpp">

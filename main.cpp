@@ -1,11 +1,11 @@
 #include <iostream>
 #include "SubInfoMng.h"
+#include "Proxy.h"
 
 
 using namespace std;
 
-int main() {
-
+void testsubtree(){
     SubInfoMng sbm;
     sbm.searchNodeList("abc/def/cgh");
     sbm.searchNodeList("abc/def/dee");
@@ -16,6 +16,9 @@ int main() {
         vector<TreeNode *> vec=sbm.searchNodeList("abc/def");
         cout<<(vec[i])->singleTopic<<endl;
     }
+}
+
+void testJsonmain(){
     UtilService us;
     //string str="{\"msg\":{\"from\":\"18610191733\",\"to\":\"88725004772\",\"mtype\": \"common\",\"mcontent\": \"give me the money\" } }";
     wstring str=us.getMsgJsonStr();
@@ -23,5 +26,23 @@ int main() {
     string sstr=us.ws2s(str);
     cout<<sstr<<endl;
     us.procMsgJson(sstr);
+}
+
+
+void testPubLishMsg(){
+    Proxy p;
+    //string str="{\"msg\":{\"from\":\"18610191733\",\"to\":\"[\"88725004772\"]\",\"mtype\": \"common\",\"mcontent\": \"give me the money\", \"mid\":\"8282828\" } }";
+    string str="{\"msg\":{\"from\":\"18610191733\",\"to\":[\"88725004772\"],\"mtype\": \"common\",\"mcontent\": \"give me the money\",\"mid\":\"3322\"} }";
+    p.procPubMsg(str);
+    string str1="{\"msg\":{\"from\":\"18610191733\",\"to\":[\"88725004772\",\"83838\"],\"mtype\": \"common\",\"mcontent\": \"give me the money\",\"mid\":\"33221\"} }";
+    p.procPubMsg(str1);
+   // PublishMng p1;
+   // p1.showMsgMap();
+
+}
+int main() {
+
+    //testPubLishMsg();
+
     return 0;
 }

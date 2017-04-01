@@ -200,6 +200,78 @@ CMakeFiles/spfcode.dir/JSONValue.cpp.obj.provides: CMakeFiles/spfcode.dir/JSONVa
 CMakeFiles/spfcode.dir/JSONValue.cpp.obj.provides.build: CMakeFiles/spfcode.dir/JSONValue.cpp.obj
 
 
+CMakeFiles/spfcode.dir/Proxy.cpp.obj: CMakeFiles/spfcode.dir/flags.make
+CMakeFiles/spfcode.dir/Proxy.cpp.obj: ../Proxy.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\spfcode\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/spfcode.dir/Proxy.cpp.obj"
+	D:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\Proxy.cpp.obj -c D:\spfcode\Proxy.cpp
+
+CMakeFiles/spfcode.dir/Proxy.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spfcode.dir/Proxy.cpp.i"
+	D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\spfcode\Proxy.cpp > CMakeFiles\spfcode.dir\Proxy.cpp.i
+
+CMakeFiles/spfcode.dir/Proxy.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spfcode.dir/Proxy.cpp.s"
+	D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\spfcode\Proxy.cpp -o CMakeFiles\spfcode.dir\Proxy.cpp.s
+
+CMakeFiles/spfcode.dir/Proxy.cpp.obj.requires:
+
+.PHONY : CMakeFiles/spfcode.dir/Proxy.cpp.obj.requires
+
+CMakeFiles/spfcode.dir/Proxy.cpp.obj.provides: CMakeFiles/spfcode.dir/Proxy.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/Proxy.cpp.obj.provides.build
+.PHONY : CMakeFiles/spfcode.dir/Proxy.cpp.obj.provides
+
+CMakeFiles/spfcode.dir/Proxy.cpp.obj.provides.build: CMakeFiles/spfcode.dir/Proxy.cpp.obj
+
+
+CMakeFiles/spfcode.dir/PublishMng.cpp.obj: CMakeFiles/spfcode.dir/flags.make
+CMakeFiles/spfcode.dir/PublishMng.cpp.obj: ../PublishMng.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\spfcode\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/spfcode.dir/PublishMng.cpp.obj"
+	D:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\PublishMng.cpp.obj -c D:\spfcode\PublishMng.cpp
+
+CMakeFiles/spfcode.dir/PublishMng.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spfcode.dir/PublishMng.cpp.i"
+	D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\spfcode\PublishMng.cpp > CMakeFiles\spfcode.dir\PublishMng.cpp.i
+
+CMakeFiles/spfcode.dir/PublishMng.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spfcode.dir/PublishMng.cpp.s"
+	D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\spfcode\PublishMng.cpp -o CMakeFiles\spfcode.dir\PublishMng.cpp.s
+
+CMakeFiles/spfcode.dir/PublishMng.cpp.obj.requires:
+
+.PHONY : CMakeFiles/spfcode.dir/PublishMng.cpp.obj.requires
+
+CMakeFiles/spfcode.dir/PublishMng.cpp.obj.provides: CMakeFiles/spfcode.dir/PublishMng.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/PublishMng.cpp.obj.provides.build
+.PHONY : CMakeFiles/spfcode.dir/PublishMng.cpp.obj.provides
+
+CMakeFiles/spfcode.dir/PublishMng.cpp.obj.provides.build: CMakeFiles/spfcode.dir/PublishMng.cpp.obj
+
+
+CMakeFiles/spfcode.dir/Message.cpp.obj: CMakeFiles/spfcode.dir/flags.make
+CMakeFiles/spfcode.dir/Message.cpp.obj: ../Message.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\spfcode\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/spfcode.dir/Message.cpp.obj"
+	D:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\Message.cpp.obj -c D:\spfcode\Message.cpp
+
+CMakeFiles/spfcode.dir/Message.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spfcode.dir/Message.cpp.i"
+	D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\spfcode\Message.cpp > CMakeFiles\spfcode.dir\Message.cpp.i
+
+CMakeFiles/spfcode.dir/Message.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spfcode.dir/Message.cpp.s"
+	D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\spfcode\Message.cpp -o CMakeFiles\spfcode.dir\Message.cpp.s
+
+CMakeFiles/spfcode.dir/Message.cpp.obj.requires:
+
+.PHONY : CMakeFiles/spfcode.dir/Message.cpp.obj.requires
+
+CMakeFiles/spfcode.dir/Message.cpp.obj.provides: CMakeFiles/spfcode.dir/Message.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/Message.cpp.obj.provides.build
+.PHONY : CMakeFiles/spfcode.dir/Message.cpp.obj.provides
+
+CMakeFiles/spfcode.dir/Message.cpp.obj.provides.build: CMakeFiles/spfcode.dir/Message.cpp.obj
+
+
 # Object files for target spfcode
 spfcode_OBJECTS = \
 "CMakeFiles/spfcode.dir/main.cpp.obj" \
@@ -207,7 +279,10 @@ spfcode_OBJECTS = \
 "CMakeFiles/spfcode.dir/TreeNode.cpp.obj" \
 "CMakeFiles/spfcode.dir/UtilService.cpp.obj" \
 "CMakeFiles/spfcode.dir/JSON.cpp.obj" \
-"CMakeFiles/spfcode.dir/JSONValue.cpp.obj"
+"CMakeFiles/spfcode.dir/JSONValue.cpp.obj" \
+"CMakeFiles/spfcode.dir/Proxy.cpp.obj" \
+"CMakeFiles/spfcode.dir/PublishMng.cpp.obj" \
+"CMakeFiles/spfcode.dir/Message.cpp.obj"
 
 # External object files for target spfcode
 spfcode_EXTERNAL_OBJECTS =
@@ -218,11 +293,14 @@ spfcode.exe: CMakeFiles/spfcode.dir/TreeNode.cpp.obj
 spfcode.exe: CMakeFiles/spfcode.dir/UtilService.cpp.obj
 spfcode.exe: CMakeFiles/spfcode.dir/JSON.cpp.obj
 spfcode.exe: CMakeFiles/spfcode.dir/JSONValue.cpp.obj
+spfcode.exe: CMakeFiles/spfcode.dir/Proxy.cpp.obj
+spfcode.exe: CMakeFiles/spfcode.dir/PublishMng.cpp.obj
+spfcode.exe: CMakeFiles/spfcode.dir/Message.cpp.obj
 spfcode.exe: CMakeFiles/spfcode.dir/build.make
 spfcode.exe: CMakeFiles/spfcode.dir/linklibs.rsp
 spfcode.exe: CMakeFiles/spfcode.dir/objects1.rsp
 spfcode.exe: CMakeFiles/spfcode.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\spfcode\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable spfcode.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\spfcode\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable spfcode.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\spfcode.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -236,6 +314,9 @@ CMakeFiles/spfcode.dir/requires: CMakeFiles/spfcode.dir/TreeNode.cpp.obj.require
 CMakeFiles/spfcode.dir/requires: CMakeFiles/spfcode.dir/UtilService.cpp.obj.requires
 CMakeFiles/spfcode.dir/requires: CMakeFiles/spfcode.dir/JSON.cpp.obj.requires
 CMakeFiles/spfcode.dir/requires: CMakeFiles/spfcode.dir/JSONValue.cpp.obj.requires
+CMakeFiles/spfcode.dir/requires: CMakeFiles/spfcode.dir/Proxy.cpp.obj.requires
+CMakeFiles/spfcode.dir/requires: CMakeFiles/spfcode.dir/PublishMng.cpp.obj.requires
+CMakeFiles/spfcode.dir/requires: CMakeFiles/spfcode.dir/Message.cpp.obj.requires
 
 .PHONY : CMakeFiles/spfcode.dir/requires
 

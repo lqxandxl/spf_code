@@ -176,6 +176,87 @@ JSONValue.cpp.s:
 	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/JSONValue.cpp.s
 .PHONY : JSONValue.cpp.s
 
+Message.obj: Message.cpp.obj
+
+.PHONY : Message.obj
+
+# target to build an object file
+Message.cpp.obj:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/Message.cpp.obj
+.PHONY : Message.cpp.obj
+
+Message.i: Message.cpp.i
+
+.PHONY : Message.i
+
+# target to preprocess a source file
+Message.cpp.i:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/Message.cpp.i
+.PHONY : Message.cpp.i
+
+Message.s: Message.cpp.s
+
+.PHONY : Message.s
+
+# target to generate assembly for a file
+Message.cpp.s:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/Message.cpp.s
+.PHONY : Message.cpp.s
+
+Proxy.obj: Proxy.cpp.obj
+
+.PHONY : Proxy.obj
+
+# target to build an object file
+Proxy.cpp.obj:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/Proxy.cpp.obj
+.PHONY : Proxy.cpp.obj
+
+Proxy.i: Proxy.cpp.i
+
+.PHONY : Proxy.i
+
+# target to preprocess a source file
+Proxy.cpp.i:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/Proxy.cpp.i
+.PHONY : Proxy.cpp.i
+
+Proxy.s: Proxy.cpp.s
+
+.PHONY : Proxy.s
+
+# target to generate assembly for a file
+Proxy.cpp.s:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/Proxy.cpp.s
+.PHONY : Proxy.cpp.s
+
+PublishMng.obj: PublishMng.cpp.obj
+
+.PHONY : PublishMng.obj
+
+# target to build an object file
+PublishMng.cpp.obj:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/PublishMng.cpp.obj
+.PHONY : PublishMng.cpp.obj
+
+PublishMng.i: PublishMng.cpp.i
+
+.PHONY : PublishMng.i
+
+# target to preprocess a source file
+PublishMng.cpp.i:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/PublishMng.cpp.i
+.PHONY : PublishMng.cpp.i
+
+PublishMng.s: PublishMng.cpp.s
+
+.PHONY : PublishMng.s
+
+# target to generate assembly for a file
+PublishMng.cpp.s:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/PublishMng.cpp.s
+.PHONY : PublishMng.cpp.s
+
 SubInfoMng.obj: SubInfoMng.cpp.obj
 
 .PHONY : SubInfoMng.obj
@@ -299,6 +380,15 @@ help:
 	@echo ... JSONValue.obj
 	@echo ... JSONValue.i
 	@echo ... JSONValue.s
+	@echo ... Message.obj
+	@echo ... Message.i
+	@echo ... Message.s
+	@echo ... Proxy.obj
+	@echo ... Proxy.i
+	@echo ... Proxy.s
+	@echo ... PublishMng.obj
+	@echo ... PublishMng.i
+	@echo ... PublishMng.s
 	@echo ... SubInfoMng.obj
 	@echo ... SubInfoMng.i
 	@echo ... SubInfoMng.s
