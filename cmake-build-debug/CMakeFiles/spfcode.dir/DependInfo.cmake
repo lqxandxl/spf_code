@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "D:/spfcode/JSON.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/JSON.cpp.obj"
   "D:/spfcode/JSONValue.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/JSONValue.cpp.obj"
   "D:/spfcode/Message.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/Message.cpp.obj"
+  "D:/spfcode/NTFMng.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/NTFMng.cpp.obj"
   "D:/spfcode/Proxy.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/Proxy.cpp.obj"
   "D:/spfcode/PublishMng.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/PublishMng.cpp.obj"
   "D:/spfcode/SubInfoMng.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj"

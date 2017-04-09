@@ -34,4 +34,16 @@ public:
 };
 
 
+class NotifyMsg{
+public:
+    string msgid; // publishmsgid_toid
+    string type;
+    string content;
+    string from;
+    string to;
+    int msgstate; //消息是否发送成功 0为没收到ack 1为收到ack
+    string publishmsgid;//属于哪个publish生成的notify
+};
+
+
 #endif //SPFCODE_MESSAGE_H

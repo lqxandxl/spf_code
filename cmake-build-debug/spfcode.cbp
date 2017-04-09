@@ -100,6 +100,12 @@
 		<Unit filename="D:/spfcode/Message.h">
 			<Option target="spfcode"/>
 		</Unit>
+		<Unit filename="D:/spfcode/NTFMng.cpp">
+			<Option target="spfcode"/>
+		</Unit>
+		<Unit filename="D:/spfcode/NTFMng.h">
+			<Option target="spfcode"/>
+		</Unit>
 		<Unit filename="D:/spfcode/Proxy.cpp">
 			<Option target="spfcode"/>
 		</Unit>

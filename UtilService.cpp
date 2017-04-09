@@ -43,7 +43,9 @@ void UtilService:: showVec(vector<string> * vec){
 */
 void UtilService :: procMsgJson(string str){
     JSONValue * recjv=JSON::Parse(str.c_str());
+    //cout<<1<<endl;
     if(recjv==NULL||!recjv->IsObject()) return ;
+    //cout<<2<<endl;
     JSONObject root=recjv->AsObject();
     JSONObject::const_iterator it=root.find(L"msg");
     if(it!=root.end()){//have found
@@ -101,7 +103,8 @@ std::wstring UtilService ::getMsgJsonStr() {
     //JSONValue res;
     JSONObject newJsonObject;
     JSONObject innerJsobj;
-    innerJsobj[L"from"]=new (std::nothrow) JSONValue(L"1877777777");
+    wstring str=s2ws("18888288228");
+    innerJsobj[L"from"]=new (std::nothrow) JSONValue(str);
     innerJsobj[L"to"]=new (std::nothrow) JSONValue(L"18722222777");
     innerJsobj[L"mtype"]=new (std::nothrow) JSONValue(L"coooommm");
     innerJsobj[L"mcontent"]=new (std::nothrow) JSONValue(L"don not give money");

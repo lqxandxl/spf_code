@@ -203,6 +203,33 @@ Message.cpp.s:
 	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/Message.cpp.s
 .PHONY : Message.cpp.s
 
+NTFMng.obj: NTFMng.cpp.obj
+
+.PHONY : NTFMng.obj
+
+# target to build an object file
+NTFMng.cpp.obj:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/NTFMng.cpp.obj
+.PHONY : NTFMng.cpp.obj
+
+NTFMng.i: NTFMng.cpp.i
+
+.PHONY : NTFMng.i
+
+# target to preprocess a source file
+NTFMng.cpp.i:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/NTFMng.cpp.i
+.PHONY : NTFMng.cpp.i
+
+NTFMng.s: NTFMng.cpp.s
+
+.PHONY : NTFMng.s
+
+# target to generate assembly for a file
+NTFMng.cpp.s:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/NTFMng.cpp.s
+.PHONY : NTFMng.cpp.s
+
 Proxy.obj: Proxy.cpp.obj
 
 .PHONY : Proxy.obj
@@ -383,6 +410,9 @@ help:
 	@echo ... Message.obj
 	@echo ... Message.i
 	@echo ... Message.s
+	@echo ... NTFMng.obj
+	@echo ... NTFMng.i
+	@echo ... NTFMng.s
 	@echo ... Proxy.obj
 	@echo ... Proxy.i
 	@echo ... Proxy.s

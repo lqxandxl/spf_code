@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/spfcode.dir/Proxy.cpp.obj"
   "CMakeFiles/spfcode.dir/PublishMng.cpp.obj"
   "CMakeFiles/spfcode.dir/Message.cpp.obj"
+  "CMakeFiles/spfcode.dir/NTFMng.cpp.obj"
   "spfcode.pdb"
   "spfcode.exe"
   "spfcode.exe.manifest"

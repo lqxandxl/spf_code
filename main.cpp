@@ -40,9 +40,16 @@ void testPubLishMsg(){
    // p1.showMsgMap();
 
 }
+
+void testpubandnotify(){
+    Proxy p;
+    //string str="{\"msg\":{\"from\":\"18610191733\",\"to\":\"[\"88725004772\"]\",\"mtype\": \"common\",\"mcontent\": \"give me the money\", \"mid\":\"8282828\" } }";
+    string str="{\"msg\":{\"from\":\"18610191733\",\"to\":[\"88725004772\"],\"mtype\": \"common\",\"mcontent\": \"give me the money\",\"mid\":\"3322\"} }";
+    p.procPubMsg(str);
+}
 int main() {
 
-    //testPubLishMsg();
+    testpubandnotify();
 
     return 0;
 }

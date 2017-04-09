@@ -70,6 +70,18 @@ iostream
 unordered_map
 -
 
+D:/spfcode/NTFMng.cpp
+Message.h
+D:/spfcode/Message.h
+NTFMng.h
+D:/spfcode/NTFMng.h
+
+D:/spfcode/NTFMng.h
+PublishMng.h
+D:/spfcode/PublishMng.h
+Proxy.h
+D:/spfcode/Proxy.h
+
 D:/spfcode/Proxy.cpp
 Proxy.h
 D:/spfcode/Proxy.h
@@ -83,6 +95,8 @@ Message.h
 D:/spfcode/Message.h
 PublishMng.h
 D:/spfcode/PublishMng.h
+NTFMng.h
+D:/spfcode/NTFMng.h
 
 D:/spfcode/PublishMng.cpp
 PublishMng.h
@@ -101,6 +115,8 @@ Message.h
 D:/spfcode/Message.h
 UtilService.h
 D:/spfcode/UtilService.h
+Proxy.h
+D:/spfcode/Proxy.h
 
 D:/spfcode/SubInfoMng.cpp
 SubInfoMng.h

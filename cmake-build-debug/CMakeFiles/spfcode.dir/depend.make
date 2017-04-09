@@ -12,9 +12,19 @@ CMakeFiles/spfcode.dir/JSONValue.cpp.obj: ../JSONValue.h
 CMakeFiles/spfcode.dir/Message.cpp.obj: ../Message.cpp
 CMakeFiles/spfcode.dir/Message.cpp.obj: ../Message.h
 
+CMakeFiles/spfcode.dir/NTFMng.cpp.obj: ../JSON.h
+CMakeFiles/spfcode.dir/NTFMng.cpp.obj: ../JSONValue.h
+CMakeFiles/spfcode.dir/NTFMng.cpp.obj: ../Message.h
+CMakeFiles/spfcode.dir/NTFMng.cpp.obj: ../NTFMng.cpp
+CMakeFiles/spfcode.dir/NTFMng.cpp.obj: ../NTFMng.h
+CMakeFiles/spfcode.dir/NTFMng.cpp.obj: ../Proxy.h
+CMakeFiles/spfcode.dir/NTFMng.cpp.obj: ../PublishMng.h
+CMakeFiles/spfcode.dir/NTFMng.cpp.obj: ../UtilService.h
+
 CMakeFiles/spfcode.dir/Proxy.cpp.obj: ../JSON.h
 CMakeFiles/spfcode.dir/Proxy.cpp.obj: ../JSONValue.h
 CMakeFiles/spfcode.dir/Proxy.cpp.obj: ../Message.h
+CMakeFiles/spfcode.dir/Proxy.cpp.obj: ../NTFMng.h
 CMakeFiles/spfcode.dir/Proxy.cpp.obj: ../Proxy.cpp
 CMakeFiles/spfcode.dir/Proxy.cpp.obj: ../Proxy.h
 CMakeFiles/spfcode.dir/Proxy.cpp.obj: ../PublishMng.h
@@ -23,6 +33,8 @@ CMakeFiles/spfcode.dir/Proxy.cpp.obj: ../UtilService.h
 CMakeFiles/spfcode.dir/PublishMng.cpp.obj: ../JSON.h
 CMakeFiles/spfcode.dir/PublishMng.cpp.obj: ../JSONValue.h
 CMakeFiles/spfcode.dir/PublishMng.cpp.obj: ../Message.h
+CMakeFiles/spfcode.dir/PublishMng.cpp.obj: ../NTFMng.h
+CMakeFiles/spfcode.dir/PublishMng.cpp.obj: ../Proxy.h
 CMakeFiles/spfcode.dir/PublishMng.cpp.obj: ../PublishMng.cpp
 CMakeFiles/spfcode.dir/PublishMng.cpp.obj: ../PublishMng.h
 CMakeFiles/spfcode.dir/PublishMng.cpp.obj: ../UtilService.h
@@ -45,6 +57,7 @@ CMakeFiles/spfcode.dir/UtilService.cpp.obj: ../UtilService.h
 CMakeFiles/spfcode.dir/main.cpp.obj: ../JSON.h
 CMakeFiles/spfcode.dir/main.cpp.obj: ../JSONValue.h
 CMakeFiles/spfcode.dir/main.cpp.obj: ../Message.h
+CMakeFiles/spfcode.dir/main.cpp.obj: ../NTFMng.h
 CMakeFiles/spfcode.dir/main.cpp.obj: ../Proxy.h
 CMakeFiles/spfcode.dir/main.cpp.obj: ../PublishMng.h
 CMakeFiles/spfcode.dir/main.cpp.obj: ../SubInfoMng.h
