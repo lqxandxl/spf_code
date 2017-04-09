@@ -47,9 +47,19 @@ void testpubandnotify(){
     string str="{\"msg\":{\"from\":\"18610191733\",\"to\":[\"88725004772\"],\"mtype\": \"common\",\"mcontent\": \"give me the money\",\"mid\":\"3322\"} }";
     p.procPubMsg(str);
 }
+
+void  testsendnotifyack(){
+    Proxy p;
+    //string str="{\"msg\":{\"from\":\"18610191733\",\"to\":\"[\"88725004772\"]\",\"mtype\": \"common\",\"mcontent\": \"give me the money\", \"mid\":\"8282828\" } }";
+    string str="{\"msg\":{\"from\":\"18610191733\",\"to\":[\"88725004772\"],\"mtype\": \"common\",\"mcontent\": \"give me the money\",\"mid\":\"3322\"} }";
+    //str的to字段可以尝试 多发 会产生多个notify
+    p.procPubMsg(str);
+    string strntfack="{\"msg\":{\"msgid\":\"18610191733_3322_88725004772\"} }";
+    p.porcNTFAckMsginN(strntfack);
+}
 int main() {
 
-    testpubandnotify();
+    testsendnotifyack();
 
     return 0;
 }
