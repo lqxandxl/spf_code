@@ -12,7 +12,7 @@ void Proxy :: procPubMsg(string s){
 
 void Proxy:: procNTFAckMsg(string msgid,string to) { //需要知道两条信息 一个是对应的pub的消息id  还有一个是是谁发过来的ack
     publishmng->procNTFAckMsg(msgid,to);
-    
+
 }
 
 void Proxy:: porcNTFAckMsginN(string s) { //notify ack string 去处理

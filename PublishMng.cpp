@@ -14,7 +14,15 @@ PublishMng::PublishMng(Proxy * p) {
 PublishMng::~PublishMng(){
 
     delete us;
+    unordered_map<string , PublishMsg *> :: iterator itbegin=msg_map->begin();
+    unordered_map<string , PublishMsg *> :: iterator itend=msg_map->end();
+    for(;itbegin!=itend;itbegin++){
+        PublishMsg * tmp=itbegin->second;
+        delete tmp;
+    }
+    msg_map->clear();
     delete msg_map;
+
 }
 
 /* 样例

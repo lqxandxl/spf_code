@@ -7,7 +7,22 @@
 
 NTFMng ::NTFMng(Proxy * p) {
     proxy=p;
+    us=new UtilService();
+    ntfmap=new unordered_map <string , NotifyMsg * > ();
 }
+
+NTFMng :: ~NTFMng(){
+    delete us;
+    unordered_map<string , NotifyMsg *> :: iterator itbegin=ntfmap->begin();
+    unordered_map<string , NotifyMsg *> :: iterator itend=ntfmap->end();
+    for(;itbegin!=itend;itbegin++){
+        NotifyMsg * tmp=itbegin->second;
+        delete tmp;
+    }
+    ntfmap->clear();
+    delete ntfmap;
+}
+
 
 void NTFMng :: procPubMsg(PublishMsg * publishmsg){
     //拿到内部结构对其进行处理 需要一个方法生成特定的json 然后调用proxytask发送消息
@@ -24,12 +39,12 @@ void NTFMng :: procPubMsg(PublishMsg * publishmsg){
         ntfmsg->msgstate=0;
         ntfmsg->publishmsgid=publishmsg->msgid; //存储归属
         unordered_map <string , NotifyMsg * > :: iterator it1;
-        it1=ntfmap.find(ntfmsg->msgid);
-        if(it1!=ntfmap.end()){ //已经存在不处理
+        it1=ntfmap->find(ntfmsg->msgid);
+        if(it1!=ntfmap->end()){ //已经存在不处理
 
         }
         else{
-           ntfmap[ntfmsg->msgid] = ntfmsg; //存储ntfmsg消息
+            (*ntfmap)[ntfmsg->msgid] = ntfmsg; //存储ntfmsg消息
            string s = us->ws2s(generateMsgJson(ntfmsg));
            std::cout<<"notify res is " << s <<endl;
            //s赋予cstr  之后 proxy->sendmsg();
@@ -79,15 +94,15 @@ void NTFMng:: procNtfAckMsg(string str){
                string notifyackmsgid = us->ws2s( itmsgid->second->AsString() );
                //提取出来之后要对map进行搜索
                unordered_map<string,NotifyMsg *> ::const_iterator itm;
-               itm=ntfmap.find(notifyackmsgid);
-               if(itm!=ntfmap.end()){ //find this notifymsg
+               itm=ntfmap->find(notifyackmsgid);
+               if(itm!=ntfmap->end()){ //find this notifymsg
                    if(itm->second->msgstate==0){
                        //需要让PUBMng模块进行处理 notifyack 的msg业务消息
                        proxy->procNTFAckMsg(itm->second->publishmsgid,itm->second->to);
                        NotifyMsg * tmpnotify;
                        tmpnotify=itm->second;
                        delete tmpnotify;
-                       ntfmap.erase(itm);
+                       ntfmap->erase(itm);
 
                    }
                    //否则不进行处理
