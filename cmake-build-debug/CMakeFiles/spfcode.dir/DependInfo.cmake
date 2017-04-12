@@ -6,10 +6,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "D:/spfcode/JSON.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/JSON.cpp.obj"
   "D:/spfcode/JSONValue.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/JSONValue.cpp.obj"
-  "D:/spfcode/Message.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/Message.cpp.obj"
   "D:/spfcode/NTFMng.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/NTFMng.cpp.obj"
-  "D:/spfcode/Proxy.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/Proxy.cpp.obj"
   "D:/spfcode/PublishMng.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/PublishMng.cpp.obj"
+  "D:/spfcode/SerMessage.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/SerMessage.cpp.obj"
+  "D:/spfcode/ServiceTask.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/ServiceTask.cpp.obj"
   "D:/spfcode/SubInfoMng.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj"
   "D:/spfcode/TreeNode.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/TreeNode.cpp.obj"
   "D:/spfcode/UtilService.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/UtilService.cpp.obj"

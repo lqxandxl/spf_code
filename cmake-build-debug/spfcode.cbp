@@ -94,28 +94,28 @@
 		<Unit filename="D:/spfcode/JSONValue.h">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/Message.cpp">
-			<Option target="spfcode"/>
-		</Unit>
-		<Unit filename="D:/spfcode/Message.h">
-			<Option target="spfcode"/>
-		</Unit>
 		<Unit filename="D:/spfcode/NTFMng.cpp">
 			<Option target="spfcode"/>
 		</Unit>
 		<Unit filename="D:/spfcode/NTFMng.h">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/Proxy.cpp">
-			<Option target="spfcode"/>
-		</Unit>
-		<Unit filename="D:/spfcode/Proxy.h">
-			<Option target="spfcode"/>
-		</Unit>
 		<Unit filename="D:/spfcode/PublishMng.cpp">
 			<Option target="spfcode"/>
 		</Unit>
 		<Unit filename="D:/spfcode/PublishMng.h">
+			<Option target="spfcode"/>
+		</Unit>
+		<Unit filename="D:/spfcode/SerMessage.cpp">
+			<Option target="spfcode"/>
+		</Unit>
+		<Unit filename="D:/spfcode/SerMessage.h">
+			<Option target="spfcode"/>
+		</Unit>
+		<Unit filename="D:/spfcode/ServiceTask.cpp">
+			<Option target="spfcode"/>
+		</Unit>
+		<Unit filename="D:/spfcode/ServiceTask.h">
 			<Option target="spfcode"/>
 		</Unit>
 		<Unit filename="D:/spfcode/SubInfoMng.cpp">
@@ -137,6 +137,9 @@
 			<Option target="spfcode"/>
 		</Unit>
 		<Unit filename="D:/spfcode/main.cpp">
+			<Option target="spfcode"/>
+		</Unit>
+		<Unit filename="D:/spfcode/msgdef_rsc.h">
 			<Option target="spfcode"/>
 		</Unit>
 		<Unit filename="D:/spfcode/CMakeLists.txt">

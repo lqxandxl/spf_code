@@ -176,33 +176,6 @@ JSONValue.cpp.s:
 	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/JSONValue.cpp.s
 .PHONY : JSONValue.cpp.s
 
-Message.obj: Message.cpp.obj
-
-.PHONY : Message.obj
-
-# target to build an object file
-Message.cpp.obj:
-	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/Message.cpp.obj
-.PHONY : Message.cpp.obj
-
-Message.i: Message.cpp.i
-
-.PHONY : Message.i
-
-# target to preprocess a source file
-Message.cpp.i:
-	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/Message.cpp.i
-.PHONY : Message.cpp.i
-
-Message.s: Message.cpp.s
-
-.PHONY : Message.s
-
-# target to generate assembly for a file
-Message.cpp.s:
-	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/Message.cpp.s
-.PHONY : Message.cpp.s
-
 NTFMng.obj: NTFMng.cpp.obj
 
 .PHONY : NTFMng.obj
@@ -230,33 +203,6 @@ NTFMng.cpp.s:
 	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/NTFMng.cpp.s
 .PHONY : NTFMng.cpp.s
 
-Proxy.obj: Proxy.cpp.obj
-
-.PHONY : Proxy.obj
-
-# target to build an object file
-Proxy.cpp.obj:
-	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/Proxy.cpp.obj
-.PHONY : Proxy.cpp.obj
-
-Proxy.i: Proxy.cpp.i
-
-.PHONY : Proxy.i
-
-# target to preprocess a source file
-Proxy.cpp.i:
-	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/Proxy.cpp.i
-.PHONY : Proxy.cpp.i
-
-Proxy.s: Proxy.cpp.s
-
-.PHONY : Proxy.s
-
-# target to generate assembly for a file
-Proxy.cpp.s:
-	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/Proxy.cpp.s
-.PHONY : Proxy.cpp.s
-
 PublishMng.obj: PublishMng.cpp.obj
 
 .PHONY : PublishMng.obj
@@ -283,6 +229,60 @@ PublishMng.s: PublishMng.cpp.s
 PublishMng.cpp.s:
 	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/PublishMng.cpp.s
 .PHONY : PublishMng.cpp.s
+
+SerMessage.obj: SerMessage.cpp.obj
+
+.PHONY : SerMessage.obj
+
+# target to build an object file
+SerMessage.cpp.obj:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/SerMessage.cpp.obj
+.PHONY : SerMessage.cpp.obj
+
+SerMessage.i: SerMessage.cpp.i
+
+.PHONY : SerMessage.i
+
+# target to preprocess a source file
+SerMessage.cpp.i:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/SerMessage.cpp.i
+.PHONY : SerMessage.cpp.i
+
+SerMessage.s: SerMessage.cpp.s
+
+.PHONY : SerMessage.s
+
+# target to generate assembly for a file
+SerMessage.cpp.s:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/SerMessage.cpp.s
+.PHONY : SerMessage.cpp.s
+
+ServiceTask.obj: ServiceTask.cpp.obj
+
+.PHONY : ServiceTask.obj
+
+# target to build an object file
+ServiceTask.cpp.obj:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/ServiceTask.cpp.obj
+.PHONY : ServiceTask.cpp.obj
+
+ServiceTask.i: ServiceTask.cpp.i
+
+.PHONY : ServiceTask.i
+
+# target to preprocess a source file
+ServiceTask.cpp.i:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/ServiceTask.cpp.i
+.PHONY : ServiceTask.cpp.i
+
+ServiceTask.s: ServiceTask.cpp.s
+
+.PHONY : ServiceTask.s
+
+# target to generate assembly for a file
+ServiceTask.cpp.s:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/ServiceTask.cpp.s
+.PHONY : ServiceTask.cpp.s
 
 SubInfoMng.obj: SubInfoMng.cpp.obj
 
@@ -407,18 +407,18 @@ help:
 	@echo ... JSONValue.obj
 	@echo ... JSONValue.i
 	@echo ... JSONValue.s
-	@echo ... Message.obj
-	@echo ... Message.i
-	@echo ... Message.s
 	@echo ... NTFMng.obj
 	@echo ... NTFMng.i
 	@echo ... NTFMng.s
-	@echo ... Proxy.obj
-	@echo ... Proxy.i
-	@echo ... Proxy.s
 	@echo ... PublishMng.obj
 	@echo ... PublishMng.i
 	@echo ... PublishMng.s
+	@echo ... SerMessage.obj
+	@echo ... SerMessage.i
+	@echo ... SerMessage.s
+	@echo ... ServiceTask.obj
+	@echo ... ServiceTask.i
+	@echo ... ServiceTask.s
 	@echo ... SubInfoMng.obj
 	@echo ... SubInfoMng.i
 	@echo ... SubInfoMng.s

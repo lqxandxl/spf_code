@@ -16,7 +16,7 @@ using namespace std;
 
 class UtilService{  //收到内部消息后所采取的一系列行为  共性的行为
 public:
-    vector<string> * splitTopic(const string s); //将 A/B/msg/local这样的url 划分为数组形式存储
+    vector<string> * splitTopic(const string s,char f); //将 A/B/msg/local这样的url 划分为数组形式存储
     void showVec(vector<string> * vec); //遍历显示vec
     //assembleTopic();
     //changeTopic();// 将 A/B/..../local 修改为 B/A/.../remote

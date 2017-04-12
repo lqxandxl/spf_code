@@ -4,7 +4,7 @@
 #include "PublishMng.h"
 
 
-PublishMng::PublishMng(Proxy * p) {
+PublishMng::PublishMng(ServiceTask * p) {
     proxy=p;
     us=new UtilService();
     msg_map = new unordered_map <string ,PublishMsg * > ();
@@ -25,6 +25,7 @@ PublishMng::~PublishMng(){
 
 }
 
+
 /* 样例
 {
   "msg":{
@@ -37,8 +38,7 @@ PublishMng::~PublishMng(){
 }
 */
 
-
-void PublishMng::procPubMsg(string str){ //body里的rsc内容
+void PublishMng::procPubMsgTest(string str){ //body里的rsc内容
     //cout<<"begin str is" <<str<<endl;
     JSONArray toArray;  //存放to的信息
     int mark=0;//判断from合法性
@@ -108,6 +108,63 @@ void PublishMng::procPubMsg(string str){ //body里的rsc内容
     }//root
    // showMsgMap(); //看看效果
 }
+
+//将一些数据放在外面不放在json中 简化处理 加快速度
+void PublishMng::procPubMsg(TRscMsgHdr * rschdr , TRscMsgBody * rscbody) { //处理rsc消息  属于 publish 中的 msg业务
+    string from = rschdr->consumer;
+    string to = rschdr->producer;
+    string rid = rschdr->rid;
+    string str = rscbody->rsc;
+    string msgid;
+    if (from.length() > 0 && rid.length() > 0) {
+        msgid = from + "_" + rid;
+    }
+    unordered_map<string, PublishMsg *>::iterator itum;
+    itum = msg_map->find(msgid);
+    cout<<"publish msg id is" << msgid<<endl;
+    if (itum != msg_map->end()) { //find it 认为是重发 不处理
+        return;
+    } else {
+        PublishMsg *pubmsg = new PublishMsg();
+        vector<string> *vecto = us->splitTopic(to, '&'); //remember to delete
+        pubmsg->from = from;
+        int vecto_len = vecto->size();
+        for (int i = 0; i < vecto_len; i++) {
+            pubmsg->to.push_back((*vecto)[i]); //存储to字段的用户
+        }
+        pubmsg->msgid = msgid;
+        JSONValue *recjv = JSON::Parse(str.c_str());
+        if (recjv == NULL || !recjv->IsObject()) return;
+        JSONObject root = recjv->AsObject();
+        JSONObject::const_iterator it = root.find(L"msg");
+        if (it != root.end()) {//have found
+            if (it->second->IsObject()) { //it->second is JSONValue *
+                JSONObject msg = it->second->AsObject();
+                JSONObject::const_iterator itmtype = msg.find(L"mtype");
+                if (itmtype != msg.end()) {
+                    pubmsg->type = us->ws2s(itmtype->second->AsString());
+                }
+                JSONObject::const_iterator itmcontent = msg.find(L"mcontent");
+                if (itmcontent != msg.end()) {
+                    pubmsg->content = us->ws2s(itmcontent->second->AsString());
+                }
+            }
+        }//root
+        int len = (pubmsg->to).size();
+        for (int i = 0; i < len; i++) {
+            pubmsg->userstate[pubmsg->to[i]] = 0; //未发送状态
+        }
+
+        (*msg_map)[pubmsg->msgid] = pubmsg;
+
+        //执行发送notify通知
+        proxy->getNTFMng()->procPubMsg(pubmsg);
+        delete vecto;
+
+    }
+}
+
+
 
 void PublishMng ::showMsgMap() {
     unordered_map<string , PublishMsg *> :: iterator itbegin=msg_map->begin();

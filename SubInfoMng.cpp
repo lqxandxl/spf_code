@@ -33,7 +33,7 @@ void SubInfoMng::dfsFree(TreeNode * root){
 vector<TreeNode* > SubInfoMng:: searchNodeList(string topic){ //添加订阅  若无结点则创建结点 若存在结点则返回结点列表
     vector <string> * tmp1;
     vector <TreeNode * > res;
-    tmp1=util.splitTopic(topic); //分解topic  abc/def/ghi
+    tmp1=util.splitTopic(topic,'/'); //分解topic  abc/def/ghi
     int len=tmp1->size();
     //cout<<"len is"<<len<<endl;
     TreeNode * current=root;//定位到根节点
