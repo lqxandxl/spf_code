@@ -4,9 +4,9 @@
 
 
 
-#include "TreeNode.h"
+#include "SerTreeNode.h"
 
-TreeNode * TreeNode::searchChildren(string singleTopic){
+SerTreeNode * SerTreeNode::searchChildren(string singleTopic){
     int len=childList.size();
     for(int i=0;i<len;i++){
         if(childList[i]->singleTopic==singleTopic){
@@ -17,20 +17,20 @@ TreeNode * TreeNode::searchChildren(string singleTopic){
 
 }
 
-void TreeNode :: addChild(TreeNode * child){  //增加孩子
+void SerTreeNode :: addChild(SerTreeNode * child){  //增加孩子
     if(child)
         childList.push_back(child);
 }
 
 
-vector <TreeNode * >    TreeNode :: getAllDes(){  //拿到所有子孙以及自己
+vector <SerTreeNode * >    SerTreeNode :: getAllDes(){  //拿到所有子孙以及自己
     int len=childList.size();
-    vector <TreeNode * > res;
-    res.push_back((TreeNode *&&) this);
+    vector <SerTreeNode * > res;
+    res.push_back((SerTreeNode *&&) this);
     int childlen;
     if(len>0){
         for(int i=0;i<len;i++){
-            vector<TreeNode * >   vec=childList[i]->getAllDes();
+            vector<SerTreeNode * >   vec=childList[i]->getAllDes();
             childlen=vec.size();
             for(int j=0;j<childlen;j++){
                 res.push_back(vec[j]);
@@ -41,11 +41,11 @@ vector <TreeNode * >    TreeNode :: getAllDes(){  //拿到所有子孙以及自�
     return res;
 }
 
-void TreeNode :: setTopic(string s){
+void SerTreeNode :: setTopic(string s){
     singleTopic=s;
 }
 
-void TreeNode :: setParent(TreeNode * p){
+void SerTreeNode :: setParent(SerTreeNode * p){
     parent=p;
 }
 

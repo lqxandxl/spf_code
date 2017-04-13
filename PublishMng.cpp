@@ -218,3 +218,10 @@ void PublishMng :: procNTFAckMsg(string msgid,string to) { //需要知道两条�
 
 
 }
+/*
+
+
+ */
+void PublishMng :: procPubState(TRscMsgHdr * head ,TRscMsgBody * rscbody){
+
+}

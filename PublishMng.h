@@ -24,6 +24,8 @@ public:
     ~PublishMng();
     void procPubMsgTest(string s); //简化为直接处理json publish 中的msg业务   rsc body
     void procNTFAckMsg(string msgid,string to); //需要知道两条信息 一个是对应的pub的消息id  还有一个是是谁发过来的ack
+
+    void procPubState(TRscMsgHdr * head ,TRscMsgBody * rscbody); //处理状态推送类消息 这样的消息 需要去查询订阅树
     //static int msgid =0; //msgid 自增 每来一个消息 加1
     //void deletePublishMsg(string msgid);  //从map中删除消息
     //~PublishMng(); //遍历map 先清除消息 再 clear map

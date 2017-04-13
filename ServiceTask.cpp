@@ -20,12 +20,13 @@ ServiceTask :: ServiceTask(){
     publishmng=new PublishMng(this);
     //publishmng->setProxy(this);
     ntfmng=new NTFMng(this);
-
+    subinfomng = new SubInfoMng(this);
 
 }
 ServiceTask::~ServiceTask() {
     delete publishmng;
     delete ntfmng;
+    delete subinfomng;
 }
 
 NTFMng*  ServiceTask ::getNTFMng() {

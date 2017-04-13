@@ -10,10 +10,10 @@ void testsubtree(){
     sbm.searchNodeList("abc/def/cgh");
     sbm.searchNodeList("abc/def/dee");
     sbm.searchNodeList("abc/def/dee/dddds");
-    vector<TreeNode *> vec=sbm.searchNodeList("abc/def");
+    vector<SerTreeNode *> vec=sbm.searchNodeList("abc/def");
     int len=vec.size();
     for(int i=0;i<len;i++){
-        vector<TreeNode *> vec=sbm.searchNodeList("abc/def");
+        vector<SerTreeNode *> vec=sbm.searchNodeList("abc/def");
         cout<<(vec[i])->singleTopic<<endl;
     }
 }
@@ -86,7 +86,7 @@ void testPublishMsg1(){
 }
 int main() {
 
-    testPublishMsg1();
+    testsubtree();
 
     return 0;
 }

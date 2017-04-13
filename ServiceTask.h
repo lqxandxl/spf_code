@@ -13,6 +13,7 @@
 #include "PublishMng.h"
 #include "NTFMng.h"
 #include "msgdef_rsc.h"
+#include "SubInfoMng.h"
 
 using namespace std;
 
@@ -30,6 +31,7 @@ typedef enum
 
 class PublishMng;
 class NTFMng;
+class SubInfoMng;
 class ServiceTask{ //等效为task就好了
 public:
     void procMsg(TRscMsgHdr * rschdr, TRscMsgBody * rscbody,int msgType);
@@ -46,6 +48,7 @@ public:
 private:
     PublishMng * publishmng;
     NTFMng * ntfmng;
+    SubInfoMng * subinfomng;
     UtilService us;
 
 
