@@ -5,6 +5,7 @@
 
 using namespace std;
 
+/*
 void testsubtree(){
     SubInfoMng sbm;
     sbm.searchNodeList("abc/def/cgh");
@@ -17,6 +18,7 @@ void testsubtree(){
         cout<<(vec[i])->singleTopic<<endl;
     }
 }
+*/
 
 void testJsonmain(){
     UtilService us;
@@ -84,9 +86,43 @@ void testPublishMsg1(){
 */
 
 }
+
+void testSub(){
+    ServiceTask * st=new ServiceTask();
+    TRscMsgHdr * head=new TRscMsgHdr();
+    TRscMsgBody * body =new TRscMsgBody();
+    head->code=3; //sub
+    head->rid="abc/def/hg";
+    head->ruri="service/state";
+    head->consumer="liqixin";
+    //body->rsc="{\"state\":{\"topic\": \"abc/def/ghi\",\"content\": \"give me the money\"} }";
+    st->procMsg(head,body,1);
+
+    TRscMsgHdr * head1=new TRscMsgHdr();
+    TRscMsgBody * body1 =new TRscMsgBody();
+    head1->code=3; //sub
+    head1->rid="abc/def/hg/ihh";
+    head1->ruri="service/state";
+    head1->consumer="fengzihang";
+    //body->rsc="{\"state\":{\"topic\": \"abc/def/ghi\",\"content\": \"give me the money\"} }";
+    st->procMsg(head1,body1,1);
+
+    TRscMsgHdr * head2=new TRscMsgHdr();
+    TRscMsgBody * body2 =new TRscMsgBody();
+    head2->code=1; //pub
+    head2->rid="200202023";
+    head2->ruri="service/state";
+    //head2->consumer="fengzihang";
+    body2->rsc="{\"state\":{\"topic\": \"abc/def\",\"content\": \"give me the money\"} }";
+    st->procMsg(head2,body2,1);
+
+
+}
+
+
 int main() {
 
-    testsubtree();
+    testSub();
 
     return 0;
 }

@@ -112,6 +112,12 @@
 		<Unit filename="D:/spfcode/SerMessage.h">
 			<Option target="spfcode"/>
 		</Unit>
+		<Unit filename="D:/spfcode/SerTreeNode.cpp">
+			<Option target="spfcode"/>
+		</Unit>
+		<Unit filename="D:/spfcode/SerTreeNode.h">
+			<Option target="spfcode"/>
+		</Unit>
 		<Unit filename="D:/spfcode/ServiceTask.cpp">
 			<Option target="spfcode"/>
 		</Unit>
@@ -122,12 +128,6 @@
 			<Option target="spfcode"/>
 		</Unit>
 		<Unit filename="D:/spfcode/SubInfoMng.h">
-			<Option target="spfcode"/>
-		</Unit>
-		<Unit filename="D:/spfcode/TreeNode.cpp">
-			<Option target="spfcode"/>
-		</Unit>
-		<Unit filename="D:/spfcode/TreeNode.h">
 			<Option target="spfcode"/>
 		</Unit>
 		<Unit filename="D:/spfcode/UtilService.cpp">

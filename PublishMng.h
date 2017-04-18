@@ -13,6 +13,7 @@
 #include "UtilService.h"
 #include "ServiceTask.h"
 #include "msgdef_rsc.h"
+#include "SerTreeNode.h"
 
 using namespace std;
 
@@ -34,6 +35,7 @@ public:
 private:
     unordered_map<string , PublishMsg *>  * msg_map;   //存放 msgid 和 msg消息的指针  当收到ack时 检查msg状态
     // 当发送完notify 收到notifyack 则可以删除publsihMsg消息了
+    set<string >  * stateSet;
     UtilService * us;
     ServiceTask * proxy;
 

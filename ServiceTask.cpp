@@ -61,11 +61,20 @@ void ServiceTask ::procMsg(TRscMsgHdr *rschdr, TRscMsgBody * rscbody,int msgType
 
                 }
                 else if((*topicVec)[1]=="state"){
-
+                   publishmng->procPubState(rschdr,rscbody);
                 }
                 break;
             }
             case SUBSCRIBE :{
+                if((*topicVec)[1]=="msg"){
+
+                }
+                else if((*topicVec)[1]=="dlg"){
+
+                }
+                else if((*topicVec)[1]=="state"){
+                    subinfomng->procSubState(rschdr,rscbody);
+                }
                 break;
             }
             case NOTIFY :{
@@ -123,4 +132,9 @@ void ServiceTask ::sendMsg(int code, string ruri, string from, string to, string
 
 
 
+}
+
+
+SubInfoMng * ServiceTask :: getSubMng(){
+    return subinfomng;
 }

@@ -104,28 +104,28 @@ CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj.provides: CMakeFiles/spfcode.dir/SubIn
 CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj.provides.build: CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj
 
 
-CMakeFiles/spfcode.dir/TreeNode.cpp.obj: CMakeFiles/spfcode.dir/flags.make
-CMakeFiles/spfcode.dir/TreeNode.cpp.obj: ../TreeNode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\spfcode\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/spfcode.dir/TreeNode.cpp.obj"
-	D:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\TreeNode.cpp.obj -c D:\spfcode\TreeNode.cpp
+CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj: CMakeFiles/spfcode.dir/flags.make
+CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj: ../SerTreeNode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\spfcode\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj"
+	D:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\SerTreeNode.cpp.obj -c D:\spfcode\SerTreeNode.cpp
 
-CMakeFiles/spfcode.dir/TreeNode.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spfcode.dir/TreeNode.cpp.i"
-	D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\spfcode\TreeNode.cpp > CMakeFiles\spfcode.dir\TreeNode.cpp.i
+CMakeFiles/spfcode.dir/SerTreeNode.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spfcode.dir/SerTreeNode.cpp.i"
+	D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\spfcode\SerTreeNode.cpp > CMakeFiles\spfcode.dir\SerTreeNode.cpp.i
 
-CMakeFiles/spfcode.dir/TreeNode.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spfcode.dir/TreeNode.cpp.s"
-	D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\spfcode\TreeNode.cpp -o CMakeFiles\spfcode.dir\TreeNode.cpp.s
+CMakeFiles/spfcode.dir/SerTreeNode.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spfcode.dir/SerTreeNode.cpp.s"
+	D:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\spfcode\SerTreeNode.cpp -o CMakeFiles\spfcode.dir\SerTreeNode.cpp.s
 
-CMakeFiles/spfcode.dir/TreeNode.cpp.obj.requires:
+CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj.requires:
 
-.PHONY : CMakeFiles/spfcode.dir/TreeNode.cpp.obj.requires
+.PHONY : CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj.requires
 
-CMakeFiles/spfcode.dir/TreeNode.cpp.obj.provides: CMakeFiles/spfcode.dir/TreeNode.cpp.obj.requires
-	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/TreeNode.cpp.obj.provides.build
-.PHONY : CMakeFiles/spfcode.dir/TreeNode.cpp.obj.provides
+CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj.provides: CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj.provides.build
+.PHONY : CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj.provides
 
-CMakeFiles/spfcode.dir/TreeNode.cpp.obj.provides.build: CMakeFiles/spfcode.dir/TreeNode.cpp.obj
+CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj.provides.build: CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj
 
 
 CMakeFiles/spfcode.dir/UtilService.cpp.obj: CMakeFiles/spfcode.dir/flags.make
@@ -300,7 +300,7 @@ CMakeFiles/spfcode.dir/NTFMng.cpp.obj.provides.build: CMakeFiles/spfcode.dir/NTF
 spfcode_OBJECTS = \
 "CMakeFiles/spfcode.dir/main.cpp.obj" \
 "CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj" \
-"CMakeFiles/spfcode.dir/TreeNode.cpp.obj" \
+"CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj" \
 "CMakeFiles/spfcode.dir/UtilService.cpp.obj" \
 "CMakeFiles/spfcode.dir/JSON.cpp.obj" \
 "CMakeFiles/spfcode.dir/JSONValue.cpp.obj" \
@@ -314,7 +314,7 @@ spfcode_EXTERNAL_OBJECTS =
 
 spfcode.exe: CMakeFiles/spfcode.dir/main.cpp.obj
 spfcode.exe: CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj
-spfcode.exe: CMakeFiles/spfcode.dir/TreeNode.cpp.obj
+spfcode.exe: CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj
 spfcode.exe: CMakeFiles/spfcode.dir/UtilService.cpp.obj
 spfcode.exe: CMakeFiles/spfcode.dir/JSON.cpp.obj
 spfcode.exe: CMakeFiles/spfcode.dir/JSONValue.cpp.obj
@@ -336,7 +336,7 @@ CMakeFiles/spfcode.dir/build: spfcode.exe
 
 CMakeFiles/spfcode.dir/requires: CMakeFiles/spfcode.dir/main.cpp.obj.requires
 CMakeFiles/spfcode.dir/requires: CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj.requires
-CMakeFiles/spfcode.dir/requires: CMakeFiles/spfcode.dir/TreeNode.cpp.obj.requires
+CMakeFiles/spfcode.dir/requires: CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj.requires
 CMakeFiles/spfcode.dir/requires: CMakeFiles/spfcode.dir/UtilService.cpp.obj.requires
 CMakeFiles/spfcode.dir/requires: CMakeFiles/spfcode.dir/JSON.cpp.obj.requires
 CMakeFiles/spfcode.dir/requires: CMakeFiles/spfcode.dir/JSONValue.cpp.obj.requires

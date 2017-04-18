@@ -40,6 +40,7 @@ public:
     void procNTFAckMsginP(string msgid,string to); //需要知道两条信息 一个是对应的pub的消息id  还有一个是是谁发过来的ack
     void prccNTFAckMsginN(TRscMsgHdr * head ,TRscMsgBody * body); //notify ack string 去处理
     void procPUBMsginP(TRscMsgHdr * head , TRscMsgBody * body);
+    SubInfoMng * getSubMng();
     ServiceTask();
     ~ServiceTask();
     NTFMng *  getNTFMng();

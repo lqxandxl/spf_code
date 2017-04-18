@@ -8,6 +8,7 @@ PublishMng::PublishMng(ServiceTask * p) {
     proxy=p;
     us=new UtilService();
     msg_map = new unordered_map <string ,PublishMsg * > ();
+    stateSet = new set<string > ();
 
 }
 
@@ -22,6 +23,8 @@ PublishMng::~PublishMng(){
     }
     msg_map->clear();
     delete msg_map;
+    delete stateSet;
+
 
 }
 
@@ -219,9 +222,61 @@ void PublishMng :: procNTFAckMsg(string msgid,string to) { //需要知道两条�
 
 }
 /*
-
-
+    state:{
+       topic: "abc/def/ghi",
+       content : "my first topic"
+    }
  */
-void PublishMng :: procPubState(TRscMsgHdr * head ,TRscMsgBody * rscbody){
+void PublishMng :: procPubState(TRscMsgHdr * rschdr ,TRscMsgBody * rscbody){
+    //string from = rschdr->consumer;
+    //string to = rschdr->producer;
+    //cout<<"begin to proc pub state1" <<endl;
 
+    string rid = rschdr->rid;
+    string str = rscbody->rsc;
+    cout<<"str is " <<str<<endl;
+    set <string >  :: iterator tmp1;
+    tmp1=stateSet->find(rid);
+    if(tmp1!=stateSet->end()){ //find it no proc
+
+    }
+    else{
+       //cout<<"begin to proc pub state2" <<endl;
+       stateSet->insert(rid);
+       string topic;
+       string content;
+       //通过主题查找要发给谁
+        JSONValue *recjv = JSON::Parse(str.c_str());
+        if (recjv == NULL || !recjv->IsObject()) return;
+        JSONObject root = recjv->AsObject();
+        JSONObject::const_iterator it = root.find(L"state");
+        if (it != root.end()) {//have found
+            if (it->second->IsObject()) { //it->second is JSONValue *
+                JSONObject msg = it->second->AsObject();
+                JSONObject::const_iterator itmtype = msg.find(L"topic");
+                if (itmtype != msg.end()) {
+                    topic = us->ws2s(itmtype->second->AsString());
+                    //cout<<"topic is" <<topic <<endl;
+                }
+                JSONObject::const_iterator itmcontent = msg.find(L"content");
+                if (itmcontent != msg.end()) {
+                    content = us->ws2s(itmcontent->second->AsString());
+                    //cout<<"content is " <<content <<endl;
+                }
+            }
+            cout<<"topic is" <<topic <<endl;
+            cout<<"content is " <<content <<endl;
+
+            set <string > clientSet;
+            clientSet  =  proxy->getSubMng()->getClientForP(topic);
+            if(!clientSet.empty()){
+                set <string > :: iterator itbegin=clientSet.begin();
+                set <string > :: iterator itend=clientSet.end();
+                for(;itbegin!=itend;itbegin++){
+                    cout << "send pub to " << *itbegin <<endl;
+                }
+            }
+        }//root
+
+    }
 }

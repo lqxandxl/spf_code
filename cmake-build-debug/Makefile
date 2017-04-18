@@ -257,6 +257,33 @@ SerMessage.cpp.s:
 	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/SerMessage.cpp.s
 .PHONY : SerMessage.cpp.s
 
+SerTreeNode.obj: SerTreeNode.cpp.obj
+
+.PHONY : SerTreeNode.obj
+
+# target to build an object file
+SerTreeNode.cpp.obj:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj
+.PHONY : SerTreeNode.cpp.obj
+
+SerTreeNode.i: SerTreeNode.cpp.i
+
+.PHONY : SerTreeNode.i
+
+# target to preprocess a source file
+SerTreeNode.cpp.i:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/SerTreeNode.cpp.i
+.PHONY : SerTreeNode.cpp.i
+
+SerTreeNode.s: SerTreeNode.cpp.s
+
+.PHONY : SerTreeNode.s
+
+# target to generate assembly for a file
+SerTreeNode.cpp.s:
+	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/SerTreeNode.cpp.s
+.PHONY : SerTreeNode.cpp.s
+
 ServiceTask.obj: ServiceTask.cpp.obj
 
 .PHONY : ServiceTask.obj
@@ -310,33 +337,6 @@ SubInfoMng.s: SubInfoMng.cpp.s
 SubInfoMng.cpp.s:
 	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/SubInfoMng.cpp.s
 .PHONY : SubInfoMng.cpp.s
-
-TreeNode.obj: TreeNode.cpp.obj
-
-.PHONY : TreeNode.obj
-
-# target to build an object file
-TreeNode.cpp.obj:
-	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/TreeNode.cpp.obj
-.PHONY : TreeNode.cpp.obj
-
-TreeNode.i: TreeNode.cpp.i
-
-.PHONY : TreeNode.i
-
-# target to preprocess a source file
-TreeNode.cpp.i:
-	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/TreeNode.cpp.i
-.PHONY : TreeNode.cpp.i
-
-TreeNode.s: TreeNode.cpp.s
-
-.PHONY : TreeNode.s
-
-# target to generate assembly for a file
-TreeNode.cpp.s:
-	$(MAKE) -f CMakeFiles\spfcode.dir\build.make CMakeFiles/spfcode.dir/TreeNode.cpp.s
-.PHONY : TreeNode.cpp.s
 
 UtilService.obj: UtilService.cpp.obj
 
@@ -416,15 +416,15 @@ help:
 	@echo ... SerMessage.obj
 	@echo ... SerMessage.i
 	@echo ... SerMessage.s
+	@echo ... SerTreeNode.obj
+	@echo ... SerTreeNode.i
+	@echo ... SerTreeNode.s
 	@echo ... ServiceTask.obj
 	@echo ... ServiceTask.i
 	@echo ... ServiceTask.s
 	@echo ... SubInfoMng.obj
 	@echo ... SubInfoMng.i
 	@echo ... SubInfoMng.s
-	@echo ... TreeNode.obj
-	@echo ... TreeNode.i
-	@echo ... TreeNode.s
 	@echo ... UtilService.obj
 	@echo ... UtilService.i
 	@echo ... UtilService.s

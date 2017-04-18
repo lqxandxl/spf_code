@@ -23,6 +23,7 @@ public:
     void add_clientid(vector<SerTreeNode *> & vecst,string clientid);//添加订阅者
     vector<SerTreeNode* > PSearchNodeList(string topic); //只是单纯的搜索，没有就返回null，针对publish
     set<string >  get_clientid(vector<SerTreeNode* > & vec); //从结点中拿到clientid 方便推送
+    set<string >  getClientForP(string topic); //对外提供 将上面两个方法合为一种
     void procSubState(TRscMsgHdr * rschead , TRscMsgBody * rscbody); //处理subscribe消息
     SubInfoMng(ServiceTask * p);
     ~SubInfoMng();

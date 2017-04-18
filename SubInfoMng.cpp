@@ -84,7 +84,7 @@ vector<SerTreeNode* > SubInfoMng :: PSearchNodeList(string topic){
         SerTreeNode * tmptree1=NULL;
         tmptree1=current->searchChildren((*tmp1)[i]); //如果搜索到孩子  赋值到tmptree1上面
         if(tmptree1==NULL){  //没找到可以创建新结点
-            return NULL;
+            return res;
         }
         else{   //找到了则继续匹配下一项
             current=tmptree1;
@@ -121,6 +121,11 @@ set<string > SubInfoMng ::  get_clientid(vector<SerTreeNode* > & vec){
 
 }
 
+set<string >  SubInfoMng :: getClientForP(string topic) { //对外提供 将上面两个方法合为一种
+     vector < SerTreeNode * > vec= PSearchNodeList ( topic );
+     set<string > res = get_clientid(vec);
+     return res;
+}
 
 /*
    sub消息
@@ -134,7 +139,7 @@ void SubInfoMng::procSubState(TRscMsgHdr * rschead , TRscMsgBody * rscbody){
       string topic=rschead->rid;
       vector<SerTreeNode* > vec=searchNodeList(topic); //创建订阅结点
       add_clientid(vec,clientid);//添加订阅者
-
+      cout<<"send suback" <<clientid << "topic is"<<topic <<endl;
       //send suback 200 or 401
 
 }
