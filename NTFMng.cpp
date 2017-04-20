@@ -12,6 +12,7 @@ NTFMng ::NTFMng(ServiceTask * p) {
 }
 
 NTFMng :: ~NTFMng(){
+
     delete us;
     unordered_map<string , NotifyMsg *> :: iterator itbegin=ntfmap->begin();
     unordered_map<string , NotifyMsg *> :: iterator itend=ntfmap->end();
@@ -61,7 +62,7 @@ void NTFMng :: procPubMsg(PublishMsg * publishmsg){
 std::wstring NTFMng :: generateMsgJson(NotifyMsg * ntfmsg){
     JSONObject newJsonObject;
     JSONObject innerJsobj;
-    us->s2ws(ntfmsg->from);
+    //us->s2ws(ntfmsg->from);
     //innerJsobj[L"msgid"]=new (std::nothrow) JSONValue(us->s2ws(ntfmsg->msgid));
     //innerJsobj[L"from"]=new (std::nothrow) JSONValue(us->s2ws(ntfmsg->from));
     //innerJsobj[L"to"]=new (std::nothrow) JSONValue(us->s2ws(ntfmsg->to));

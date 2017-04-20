@@ -234,7 +234,7 @@ void PublishMng :: procPubState(TRscMsgHdr * rschdr ,TRscMsgBody * rscbody){
 
     string rid = rschdr->rid;
     string str = rscbody->rsc;
-    cout<<"str is " <<str<<endl;
+    //cout<<"str is " <<str<<endl;
     set <string >  :: iterator tmp1;
     tmp1=stateSet->find(rid);
     if(tmp1!=stateSet->end()){ //find it no proc
@@ -264,8 +264,8 @@ void PublishMng :: procPubState(TRscMsgHdr * rschdr ,TRscMsgBody * rscbody){
                     //cout<<"content is " <<content <<endl;
                 }
             }
-            cout<<"topic is" <<topic <<endl;
-            cout<<"content is " <<content <<endl;
+            //cout<<"topic is" <<topic <<endl;
+            //cout<<"content is " <<content <<endl;
 
             set <string > clientSet;
             clientSet  =  proxy->getSubMng()->getClientForP(topic);
@@ -274,6 +274,18 @@ void PublishMng :: procPubState(TRscMsgHdr * rschdr ,TRscMsgBody * rscbody){
                 set <string > :: iterator itend=clientSet.end();
                 for(;itbegin!=itend;itbegin++){
                     cout << "send pub to " << *itbegin <<endl;
+                    //生成新的publish消息
+                    JSONObject newJsonObject;
+                    JSONObject innerJsobj;
+                    innerJsobj[L"topic"]=new (std::nothrow) JSONValue(us->s2ws(topic));
+                    innerJsobj[L"content"]=new (std::nothrow) JSONValue(us->s2ws(content));
+                    //JSONValue res=innerJsobj;
+                    newJsonObject[L"state"]=new (std::nothrow) JSONValue(innerJsobj);
+                    JSONValue res=newJsonObject;
+                    //res.Stringify();
+                    std::wstring resstr=res.Stringify().c_str();
+                    string jsoncontent = us->ws2s(resstr); //body 内容
+
                 }
             }
         }//root

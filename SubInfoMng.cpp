@@ -13,11 +13,13 @@
 SubInfoMng::SubInfoMng(ServiceTask * p){
     root=new SerTreeNode();
     proxy=p;
+    substateset=new set<string> ();
 
 }
 
 SubInfoMng::~SubInfoMng(){
     dfsFree(root);
+    delete substateset;
 }
 
 void SubInfoMng::dfsFree(SerTreeNode * root){
@@ -131,15 +133,66 @@ set<string >  SubInfoMng :: getClientForP(string topic) { //对外提供 将上�
    sub消息
 
    consumer当作 clientid
-   rid 当成主题 这样就不用处理body了 还是body内容里包含主题比较好 暂未修改
+   rid 依然作为判断是不是重复消息的依据
+   isdelete用来 作为是否添加订阅 或者是退订
 
+    state:{
+       topic: "abc/def/ghi",
+       isdelete : "0"
+    }
  */
 void SubInfoMng::procSubState(TRscMsgHdr * rschead , TRscMsgBody * rscbody){
       string clientid = rschead->consumer;
-      string topic=rschead->rid;
-      vector<SerTreeNode* > vec=searchNodeList(topic); //创建订阅结点
-      add_clientid(vec,clientid);//添加订阅者
-      cout<<"send suback" <<clientid << "topic is"<<topic <<endl;
-      //send suback 200 or 401
+      string rid=rschead->rid;
+      string str = rscbody->rsc;
+      set <string >  :: iterator tmp1;
+      rid=clientid+"_"+rid; //避免不同客户端冲突
+      tmp1=substateset->find(rid);
+      string topic;
+      int isdelete=-1;
+     //cout<<"proc sub state " <<rid <<endl;
+    if(tmp1!=substateset->end()){ //find it no proc
+
+    }
+    else{
+
+        substateset->insert(rid);
+        //通过主题查找要发给谁
+        JSONValue *recjv = JSON::Parse(str.c_str());
+        if (recjv == NULL || !recjv->IsObject()) return;
+        JSONObject root = recjv->AsObject();
+        JSONObject::const_iterator it = root.find(L"state");
+        if (it != root.end()) {//have found
+            if (it->second->IsObject()) { //it->second is JSONValue *
+                JSONObject msg = it->second->AsObject();
+                JSONObject::const_iterator itmtype = msg.find(L"topic");
+                if (itmtype != msg.end()) {
+                    topic = util.ws2s(itmtype->second->AsString());
+                    //cout<<"topic is" <<topic <<endl;
+                }
+                JSONObject::const_iterator itmcontent = msg.find(L"isdelete");
+                if (itmcontent != msg.end()) {
+                    isdelete = itmcontent->second->AsNumber();
+                }
+            }
+            if(isdelete==0){
+                vector<SerTreeNode* > vec=searchNodeList(topic); //创建订阅结点
+                add_clientid(vec,clientid);//添加订阅者
+                cout<<"send suback to " <<clientid << " topic is "<<topic <<endl;
+                //send suback 200 or 401
+
+            }
+            else{ //执行删除订阅逻辑
+
+            }
+
+
+
+        }//root
+
+
+    }
+
+
 
 }

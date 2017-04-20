@@ -92,19 +92,19 @@ void testSub(){
     TRscMsgHdr * head=new TRscMsgHdr();
     TRscMsgBody * body =new TRscMsgBody();
     head->code=3; //sub
-    head->rid="abc/def/hg";
+    head->rid="2211122";
     head->ruri="service/state";
     head->consumer="liqixin";
-    //body->rsc="{\"state\":{\"topic\": \"abc/def/ghi\",\"content\": \"give me the money\"} }";
+    body->rsc="{\"state\":{\"topic\": \"abc/def/hg\",\"isdelete\": \"0\"} }";
     st->procMsg(head,body,1);
 
     TRscMsgHdr * head1=new TRscMsgHdr();
     TRscMsgBody * body1 =new TRscMsgBody();
     head1->code=3; //sub
-    head1->rid="abc/def/hg/ihh";
+    head1->rid="212222122";
     head1->ruri="service/state";
     head1->consumer="fengzihang";
-    //body->rsc="{\"state\":{\"topic\": \"abc/def/ghi\",\"content\": \"give me the money\"} }";
+    body1->rsc="{\"state\":{\"topic\": \"abc/def/hg/ihh\",\"isdelete\": \"0\"} }";
     st->procMsg(head1,body1,1);
 
     TRscMsgHdr * head2=new TRscMsgHdr();

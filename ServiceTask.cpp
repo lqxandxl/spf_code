@@ -13,9 +13,21 @@ void ServiceTask:: procNTFAckMsginP(string msgid,string to) { //需要知道两�
 
 }
 
-void ServiceTask:: prccNTFAckMsginN(TRscMsgHdr * head ,TRscMsgBody * body ) { //notify ack string 去处理
+void ServiceTask:: procNTFAckMsginN(TRscMsgHdr * head ,TRscMsgBody * body ) { //notify ack string 去处理
     ntfmng->procNtfAckMsg(head,body);
 }
+
+// 新增处理状态推送
+void ServiceTask :: procPUBStateinP(TRscMsgHdr * head , TRscMsgBody * body){
+    publishmng->procPubState(head,body);
+}
+
+//处理状态订阅
+void ServiceTask :: procSUBStateinS(TRscMsgHdr * head, TRscMsgBody * body){
+    subinfomng->procSubState(head,body);
+}
+
+
 ServiceTask :: ServiceTask(){
     publishmng=new PublishMng(this);
     //publishmng->setProxy(this);
@@ -52,7 +64,6 @@ void ServiceTask ::procMsg(TRscMsgHdr *rschdr, TRscMsgBody * rscbody,int msgType
         switch(rscHdrCode){
             case PUBLISH :{ //PUBLISH 有不同的业务 需要 ruri 去判断 比如 消息业务 对话业务 状态推送等等
                 if((*topicVec)[1]=="msg"){
-                    cout<<"begin to proc publish" << endl;
                     procPUBMsginP(rschdr,rscbody);
 
 
@@ -61,7 +72,7 @@ void ServiceTask ::procMsg(TRscMsgHdr *rschdr, TRscMsgBody * rscbody,int msgType
 
                 }
                 else if((*topicVec)[1]=="state"){
-                   publishmng->procPubState(rschdr,rscbody);
+                   procPUBStateinP(rschdr,rscbody);
                 }
                 break;
             }
@@ -73,7 +84,7 @@ void ServiceTask ::procMsg(TRscMsgHdr *rschdr, TRscMsgBody * rscbody,int msgType
 
                 }
                 else if((*topicVec)[1]=="state"){
-                    subinfomng->procSubState(rschdr,rscbody);
+                    procSUBStateinS(rschdr,rscbody);
                 }
                 break;
             }
@@ -93,8 +104,7 @@ void ServiceTask ::procMsg(TRscMsgHdr *rschdr, TRscMsgBody * rscbody,int msgType
                 break;
             }
             case NOTIFYACK :{
-                cout<<"begin to process notifyack" ;
-                prccNTFAckMsginN(rschdr ,rscbody);
+                procNTFAckMsginN(rschdr ,rscbody);
                 break;
             }
         }

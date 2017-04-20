@@ -27,12 +27,15 @@ public:
     void procSubState(TRscMsgHdr * rschead , TRscMsgBody * rscbody); //处理subscribe消息
     SubInfoMng(ServiceTask * p);
     ~SubInfoMng();
-    UtilService util; //工具类对象
-    SerTreeNode * root; //root结点
+
+
     void dfsFree(SerTreeNode * t); //释放treenode 之间new过 必须删除
 
 private:
     ServiceTask * proxy;
+    set <string > * substateset; //存放subscribe state消息
+    UtilService util; //工具类对象
+    SerTreeNode * root; //root结点
 };
 
 

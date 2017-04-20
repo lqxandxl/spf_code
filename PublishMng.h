@@ -23,6 +23,7 @@ public:
     PublishMng(ServiceTask * proxy1);
     void procPubMsg(TRscMsgHdr * rschdr, TRscMsgBody * rscbody); //简化为直接处理json publish 中的msg业务
     ~PublishMng();
+
     void procPubMsgTest(string s); //简化为直接处理json publish 中的msg业务   rsc body
     void procNTFAckMsg(string msgid,string to); //需要知道两条信息 一个是对应的pub的消息id  还有一个是是谁发过来的ack
 
