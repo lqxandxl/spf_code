@@ -6,7 +6,7 @@
 #define SPFCODE_PUBLISHMNG_H
 
 #include <string>
-#include <unordered_map>
+#include <map>
 #include "JSON.h"
 #include "JSONValue.h"
 #include "SerMessage.h"
@@ -21,20 +21,19 @@ class ServiceTask;
 class PublishMng{
 public:
     PublishMng(ServiceTask * proxy1);
-    void procPubMsg(TRscMsgHdr * rschdr, TRscMsgBody * rscbody); //简化为直接处理json publish 中的msg业务
     ~PublishMng();
 
-    void procPubMsgTest(string s); //简化为直接处理json publish 中的msg业务   rsc body
-    void procNTFAckMsg(string msgid,string to); //需要知道两条信息 一个是对应的pub的消息id  还有一个是是谁发过来的ack
+    //处理msg业务
+    void proc_msg_publish(TRscMsgHdr * rschdr, TRscMsgBody * rscbody); //简化为直接处理json publish 中的msg业务
+    void proc_msg_notifyack(string msgid,string to); //需要知道两条信息 一个是对应的pub的消息id  还有一个是是谁发过来的ack
 
+
+    //处理state业务
     void procPubState(TRscMsgHdr * head ,TRscMsgBody * rscbody); //处理状态推送类消息 这样的消息 需要去查询订阅树
-    //static int msgid =0; //msgid 自增 每来一个消息 加1
-    //void deletePublishMsg(string msgid);  //从map中删除消息
-    //~PublishMng(); //遍历map 先清除消息 再 clear map
-    void showMsgMap(); //遍历显示一遍map
+
 
 private:
-    unordered_map<string , PublishMsg *>  * msg_map;   //存放 msgid 和 msg消息的指针  当收到ack时 检查msg状态
+    map<string , PublishMsg *>  * msg_map;   //存放 msgid 和 msg消息的指针  当收到ack时 检查msg状态
     // 当发送完notify 收到notifyack 则可以删除publsihMsg消息了
     set<string >  * stateSet;
     UtilService * us;

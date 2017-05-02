@@ -22,9 +22,7 @@ void testsubtree(){
 
 void testJsonmain(){
     UtilService us;
-    //string str="{\"msg\":{\"from\":\"18610191733\",\"to\":\"88725004772\",\"mtype\": \"common\",\"mcontent\": \"give me the money\" } }";
     wstring str=us.getMsgJsonStr();
-    //wcout<<str<<endl;
     string sstr=us.ws2s(str);
     cout<<sstr<<endl;
     us.procMsgJson(sstr);
@@ -33,21 +31,13 @@ void testJsonmain(){
 
 void testPubLishMsg(){
     ServiceTask p;
-    //string str="{\"msg\":{\"from\":\"18610191733\",\"to\":\"[\"88725004772\"]\",\"mtype\": \"common\",\"mcontent\": \"give me the money\", \"mid\":\"8282828\" } }";
     string str="{\"msg\":{\"from\":\"18610191733\",\"to\":[\"88725004772\"],\"mtype\": \"common\",\"mcontent\": \"give me the money\",\"mid\":\"3322\"} }";
-   // p.procPubMsg(str);
     string str1="{\"msg\":{\"from\":\"18610191733\",\"to\":[\"88725004772\",\"83838\"],\"mtype\": \"common\",\"mcontent\": \"give me the money\",\"mid\":\"33221\"} }";
-    //p.procPubMsg(str1);
-   // PublishMng p1;
-   // p1.showMsgMap();
-
 }
 
 void testpubandnotify(){
     ServiceTask p;
-    //string str="{\"msg\":{\"from\":\"18610191733\",\"to\":\"[\"88725004772\"]\",\"mtype\": \"common\",\"mcontent\": \"give me the money\", \"mid\":\"8282828\" } }";
     string str="{\"msg\":{\"from\":\"18610191733\",\"to\":[\"88725004772\"],\"mtype\": \"common\",\"mcontent\": \"give me the money\",\"mid\":\"3322\"} }";
-    //p.procPubMsg(str);
 }
 
 void testPublishMsg1(){
@@ -76,14 +66,14 @@ void testPublishMsg1(){
     head2->rid="liqixin_234443332_zhouzheng";
     head2->ruri="service/msg";
     st->procMsg(head2,body2,2);
-/*
+
     TRscMsgHdr * head3=new TRscMsgHdr();
     TRscMsgBody * body3 =new TRscMsgBody();
     head3->code=6;
     head3->rid="liqixin_234443332_houliangping";
     head3->ruri="service/msg";
     st->procMsg(head3,body3,2);
-*/
+
 
 }
 
@@ -122,7 +112,7 @@ void testSub(){
 
 int main() {
 
-    testSub();
+    testPublishMsg1();
 
     return 0;
 }

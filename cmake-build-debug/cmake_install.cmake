@@ -1,4 +1,4 @@
-# Install script for directory: D:/spfcode
+# Install script for directory: C:/c study/spf_code
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/spfcode/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/c study/spf_code/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

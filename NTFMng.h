@@ -14,13 +14,16 @@ class NTFMng{
 public:
     NTFMng(ServiceTask * proxy1);
     ~NTFMng();
-    void procPubMsg(PublishMsg * publishmsg); //处理publish的msg业务消息
-    void procNtfAckMsg(TRscMsgHdr * head , TRscMsgBody * body);//专门处理msg类的NOTIFYACK消息
-    std::wstring generateMsgJson(NotifyMsg * ntfmsg);
+
+    //处理msg业务
+    void proc_msg_publish(PublishMsg * publishmsg); //处理publish的msg业务消息
+    void proc_msg_notifyack(TRscMsgHdr * head , TRscMsgBody * body);//专门处理msg类的NOTIFYACK消息
+    NotifyMsg * find_msg_notify(string msgid);
+
 
 private:
     ServiceTask * proxy;
-    unordered_map <string , NotifyMsg * > * ntfmap; //管理离线消息的结构
+    map <string , NotifyMsg * > * ntfmap; //管理离线消息的结构
     UtilService * us;
 };
 #endif //SPFCODE_NTFMNG_H

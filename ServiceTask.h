@@ -7,8 +7,7 @@
 #define SPFCODE_PROXY_H
 
 #include <string>
-//#include <map>
-#include <unordered_map>
+#include <map>
 #include "SerMessage.h"
 #include "PublishMng.h"
 #include "NTFMng.h"
@@ -34,28 +33,41 @@ class NTFMng;
 class SubInfoMng;
 class ServiceTask{ //等效为task就好了
 public:
+    ServiceTask();
+    ~ServiceTask();
+
     void procMsg(TRscMsgHdr * rschdr, TRscMsgBody * rscbody,int msgType);
 
+    //msg 业务
+    void proc_msg_notifyack(TRscMsgHdr * head ,TRscMsgBody * body); //notify ack string 去处理
+    void proc_msg_publish(TRscMsgHdr * head , TRscMsgBody * body);
 
-    void procNTFAckMsginP(string msgid,string to); //需要知道两条信息 一个是对应的pub的消息id  还有一个是是谁发过来的ack
-    void procNTFAckMsginN(TRscMsgHdr * head ,TRscMsgBody * body); //notify ack string 去处理
-    void procPUBMsginP(TRscMsgHdr * head , TRscMsgBody * body);
+    //state业务
     void procPUBStateinP(TRscMsgHdr * head , TRscMsgBody * body);
     void procSUBStateinS(TRscMsgHdr * head, TRscMsgBody * body);
 
+
+    //处理移动性管理部分
+    void proc_uaip(TRscMsgHdr * head , TRscMsgBody * body);
+    void proc_satip(TRscMsgHdr * head , TRscMsgBody * body);
+
+    //调用内部模块
     SubInfoMng * getSubMng();
-    ServiceTask();
-    ~ServiceTask();
     NTFMng *  getNTFMng();
-    string getDest(string to);//向移动性管理模块查询地址
-    void sendMsg(int code,string ruri,string from,string to,string rid,string destination,string jsoncontent);
+    PublishMng * getPubMng();
+
+    int send_map_add(string userid, string servicename, string msgtype,string msgid);
+    void get_uaip(string userid);
+
 private:
     PublishMng * publishmng;
     NTFMng * ntfmng;
     SubInfoMng * subinfomng;
-    UtilService us;
+    UtilService * us;
     int _addr_; //psa的编号  taddr.logaddr
 
+    //为了发送消息 需要将userid 以及 其对应的要发送的消息 存放为map
+    map<string , set<string> * > * send_map;  //userid --->  <xxx_msgid> msgid 比如为 msg&notify&msgid
 
 };
 #endif //SPFCODE_PROXY_H

@@ -4,16 +4,16 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/spfcode/JSON.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/JSON.cpp.obj"
-  "D:/spfcode/JSONValue.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/JSONValue.cpp.obj"
-  "D:/spfcode/NTFMng.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/NTFMng.cpp.obj"
-  "D:/spfcode/PublishMng.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/PublishMng.cpp.obj"
-  "D:/spfcode/SerMessage.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/SerMessage.cpp.obj"
-  "D:/spfcode/SerTreeNode.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj"
-  "D:/spfcode/ServiceTask.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/ServiceTask.cpp.obj"
-  "D:/spfcode/SubInfoMng.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj"
-  "D:/spfcode/UtilService.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/UtilService.cpp.obj"
-  "D:/spfcode/main.cpp" "D:/spfcode/cmake-build-debug/CMakeFiles/spfcode.dir/main.cpp.obj"
+  "C:/c study/spf_code/JSON.cpp" "C:/c study/spf_code/cmake-build-debug/CMakeFiles/spfcode.dir/JSON.cpp.obj"
+  "C:/c study/spf_code/JSONValue.cpp" "C:/c study/spf_code/cmake-build-debug/CMakeFiles/spfcode.dir/JSONValue.cpp.obj"
+  "C:/c study/spf_code/NTFMng.cpp" "C:/c study/spf_code/cmake-build-debug/CMakeFiles/spfcode.dir/NTFMng.cpp.obj"
+  "C:/c study/spf_code/PublishMng.cpp" "C:/c study/spf_code/cmake-build-debug/CMakeFiles/spfcode.dir/PublishMng.cpp.obj"
+  "C:/c study/spf_code/SerMessage.cpp" "C:/c study/spf_code/cmake-build-debug/CMakeFiles/spfcode.dir/SerMessage.cpp.obj"
+  "C:/c study/spf_code/SerTreeNode.cpp" "C:/c study/spf_code/cmake-build-debug/CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj"
+  "C:/c study/spf_code/ServiceTask.cpp" "C:/c study/spf_code/cmake-build-debug/CMakeFiles/spfcode.dir/ServiceTask.cpp.obj"
+  "C:/c study/spf_code/SubInfoMng.cpp" "C:/c study/spf_code/cmake-build-debug/CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj"
+  "C:/c study/spf_code/UtilService.cpp" "C:/c study/spf_code/cmake-build-debug/CMakeFiles/spfcode.dir/UtilService.cpp.obj"
+  "C:/c study/spf_code/main.cpp" "C:/c study/spf_code/cmake-build-debug/CMakeFiles/spfcode.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

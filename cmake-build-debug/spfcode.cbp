@@ -8,141 +8,141 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="D:/spfcode/cmake-build-debug"/>
+				<Option working_dir="C:/c study/spf_code/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="D:/spfcode/cmake-build-debug"/>
+				<Option working_dir="C:/c study/spf_code/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="spfcode">
-				<Option output="D:/spfcode/cmake-build-debug/spfcode.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/spfcode/cmake-build-debug"/>
+				<Option output="C:/c study/spf_code/cmake-build-debug/spfcode.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/c study/spf_code/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/4.8.1/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/4.8.1/../../../../include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/4.8.1/include-fixed"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/4.8.1/../../../../mingw32/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++/mingw32"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/4.8.1/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/4.8.1/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/4.8.1/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/4.8.1/../../../../mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 spfcode"/>
-					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 spfcode"/>
+					<CompileFile command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="spfcode/fast">
-				<Option output="D:/spfcode/cmake-build-debug/spfcode.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/spfcode/cmake-build-debug"/>
+				<Option output="C:/c study/spf_code/cmake-build-debug/spfcode.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/c study/spf_code/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/4.8.1/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/4.8.1/../../../../include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/4.8.1/include-fixed"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/4.8.1/../../../../mingw32/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++/mingw32"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/4.8.1/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/4.8.1/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/4.8.1/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/4.8.1/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/4.8.1/../../../../mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 spfcode/fast"/>
-					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 spfcode/fast"/>
+					<CompileFile command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="D:/spfcode/cmake-build-debug"/>
+				<Option working_dir="C:/c study/spf_code/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/spfcode/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/mingw/bin/mingw32-make.exe -f &quot;C:/c study/spf_code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/spfcode/JSON.cpp">
+		<Unit filename="C:/c study/spf_code/JSON.cpp">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/JSON.h">
+		<Unit filename="C:/c study/spf_code/JSON.h">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/JSONValue.cpp">
+		<Unit filename="C:/c study/spf_code/JSONValue.cpp">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/JSONValue.h">
+		<Unit filename="C:/c study/spf_code/JSONValue.h">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/NTFMng.cpp">
+		<Unit filename="C:/c study/spf_code/NTFMng.cpp">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/NTFMng.h">
+		<Unit filename="C:/c study/spf_code/NTFMng.h">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/PublishMng.cpp">
+		<Unit filename="C:/c study/spf_code/PublishMng.cpp">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/PublishMng.h">
+		<Unit filename="C:/c study/spf_code/PublishMng.h">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/SerMessage.cpp">
+		<Unit filename="C:/c study/spf_code/SerMessage.cpp">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/SerMessage.h">
+		<Unit filename="C:/c study/spf_code/SerMessage.h">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/SerTreeNode.cpp">
+		<Unit filename="C:/c study/spf_code/SerTreeNode.cpp">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/SerTreeNode.h">
+		<Unit filename="C:/c study/spf_code/SerTreeNode.h">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/ServiceTask.cpp">
+		<Unit filename="C:/c study/spf_code/ServiceTask.cpp">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/ServiceTask.h">
+		<Unit filename="C:/c study/spf_code/ServiceTask.h">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/SubInfoMng.cpp">
+		<Unit filename="C:/c study/spf_code/SubInfoMng.cpp">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/SubInfoMng.h">
+		<Unit filename="C:/c study/spf_code/SubInfoMng.h">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/UtilService.cpp">
+		<Unit filename="C:/c study/spf_code/UtilService.cpp">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/UtilService.h">
+		<Unit filename="C:/c study/spf_code/UtilService.h">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/main.cpp">
+		<Unit filename="C:/c study/spf_code/main.cpp">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/msgdef_rsc.h">
+		<Unit filename="C:/c study/spf_code/msgdef_rsc.h">
 			<Option target="spfcode"/>
 		</Unit>
-		<Unit filename="D:/spfcode/CMakeLists.txt">
+		<Unit filename="C:/c study/spf_code/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
