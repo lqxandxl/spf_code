@@ -112,7 +112,7 @@ void testSub(){
 
 int main() {
 
-    testPublishMsg1();
+    testSub();
 
     return 0;
 }

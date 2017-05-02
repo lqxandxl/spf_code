@@ -243,8 +243,8 @@ void ServiceTask :: proc_uaip(TRscMsgHdr * head , TRscMsgBody * body){
         it4=send_map->find(userid);
         if(it4!=send_map->end()){ //find it
            set<string > * tmpset=it4->second;
-            set<string> :: iterator itbegin=tmpset->begin();
-            set<string> :: iterator itend=tmpset->end();
+           set<string> :: iterator itbegin=tmpset->begin();
+           set<string> :: iterator itend=tmpset->end();
             for(;itbegin!=itend;itbegin++){
                 string tmps=*itbegin;
                 vector<string> * msgvec=us->splitTopic(tmps,'&');
@@ -261,8 +261,8 @@ void ServiceTask :: proc_uaip(TRscMsgHdr * head , TRscMsgBody * body){
                              NotifyMsg * tmpmsg1=ntfmng->find_msg_notify(msgid);//find it
                              //send msg
 
-
-
+                             //发送完从消息队列中移除消息
+                             tmpset->erase(tmps);
                          }
                     }
                 }
