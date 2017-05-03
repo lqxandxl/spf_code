@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.6)
 project(spfcode)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 9)
 set(SOURCE_FILES main.cpp
         UtilService.h
         SerTreeNode.h SubInfoMng.h SerMessage.h

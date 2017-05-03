@@ -7,6 +7,8 @@
 
 #include <string>
 #include <map>
+#include <vector>
+#include <set>
 #include "JSON.h"
 #include "JSONValue.h"
 #include "SerMessage.h"

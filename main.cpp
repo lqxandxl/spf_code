@@ -1,4 +1,7 @@
 #include <iostream>
+
+#include <sstream>
+
 #include "SubInfoMng.h"
 #include "ServiceTask.h"
 
@@ -19,7 +22,7 @@ void testsubtree(){
     }
 }
 */
-
+/*
 void testJsonmain(){
     UtilService us;
     wstring str=us.getMsgJsonStr();
@@ -27,6 +30,8 @@ void testJsonmain(){
     cout<<sstr<<endl;
     us.procMsgJson(sstr);
 }
+*/
+
 
 
 void testPubLishMsg(){
@@ -112,7 +117,19 @@ void testSub(){
 
 int main() {
 
-    testSub();
+    //testSub();
+    UtilService * us=new UtilService();
+    string topic="/abc/def/ghi";
+    vector<string> * vec=us->splitTopic(topic,'/');
+    int len=vec->size();
+    for(int i=0;i<len;i++){
+        cout<<(*vec)[i]<<endl;
+    }
+
+
+
+    int a=0x7fffffff;
+    cout<<a<<endl;
 
     return 0;
 }

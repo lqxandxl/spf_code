@@ -79,6 +79,10 @@ string
 -
 map
 -
+vector
+-
+set
+-
 JSON.h
 C:/c study/spf_code/JSON.h
 JSONValue.h
@@ -175,9 +179,13 @@ JSON.h
 C:/c study/spf_code/JSON.h
 JSONValue.h
 C:/c study/spf_code/JSONValue.h
+sstream
+-
 
 C:/c study/spf_code/main.cpp
 iostream
+-
+sstream
 -
 SubInfoMng.h
 C:/c study/spf_code/SubInfoMng.h

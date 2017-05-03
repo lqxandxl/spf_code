@@ -74,7 +74,7 @@ void NTFMng ::proc_msg_publish(PublishMsg * publishmsg){
 void NTFMng:: proc_msg_notifyack(TRscMsgHdr * head ,TRscMsgBody * body){
     string notifyackmsgid = head->rid ;
     //提取出来之后要对map进行搜索
-    map<string,NotifyMsg *> ::const_iterator itm;
+    map<string,NotifyMsg *> ::iterator itm;
     itm=ntfmap->find(notifyackmsgid);
     if(itm!=ntfmap->end()){ //find this notifymsg
        if(itm->second->msgstate==0){

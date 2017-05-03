@@ -26,7 +26,8 @@ void SerTreeNode :: addChild(SerTreeNode * child){  //增加孩子
 vector <SerTreeNode * >    SerTreeNode :: getAllDes(){  //拿到所有子孙以及自己
     int len=childList.size();
     vector <SerTreeNode * > res;
-    res.push_back((SerTreeNode *&&) this);
+    // res.push_back((SerTreeNode *&&) this); 原语句在c++11编译可以
+    res.push_back(this);
     int childlen;
     if(len>0){
         for(int i=0;i<len;i++){

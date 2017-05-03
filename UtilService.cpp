@@ -6,6 +6,9 @@
 #include "UtilService.h"
 using namespace std;
 
+// example:
+// topic :  abc/def/ghi  修改last为1
+
 vector <string> * UtilService:: splitTopic(const string s,char f){
     vector <string> * vec = new vector<string>();
     int last=0;
@@ -21,6 +24,7 @@ vector <string> * UtilService:: splitTopic(const string s,char f){
     return vec;
 }
 
+/*
 void UtilService:: showVec(vector<string> * vec){
     vector <string> & v=*vec;
     int len=v.size();
@@ -31,6 +35,9 @@ void UtilService:: showVec(vector<string> * vec){
 
 
 }
+*/
+
+
 /* 样例
 {
   "msg":{
@@ -41,6 +48,7 @@ void UtilService:: showVec(vector<string> * vec){
   }
 }
 */
+/*
 void UtilService :: procMsgJson(string str){
     JSONValue * recjv=JSON::Parse(str.c_str());
     //cout<<1<<endl;
@@ -87,6 +95,9 @@ void UtilService :: procMsgJson(string str){
     return;
 }
 
+*/
+
+
 
 /* 样例
 {
@@ -98,6 +109,7 @@ void UtilService :: procMsgJson(string str){
   }
 }
 */
+/*
 std::wstring UtilService ::getMsgJsonStr() {
     //cout<<"begin to process"<<endl;
     //JSONValue res;
@@ -116,6 +128,7 @@ std::wstring UtilService ::getMsgJsonStr() {
     //cout<<"all finish"<<endl;
     return resstr;
 }
+*/
 
 
 std::string UtilService::ws2s(const std::wstring& ws)
@@ -148,3 +161,27 @@ std::wstring UtilService::s2ws(const std::string& s)
 }
 
 
+string UtilService :: int_to_string(int n){
+    string res;
+    stringstream ss;
+    ss<<n;
+    ss>>res;
+    return res;
+}
+
+
+vector<string> * UtilService::splitRuri(const string s,char f){ //将 /A/B/msg/local这样的url 划分为数组形式存储
+    vector <string> * vec = new vector<string>();
+    int last=1;
+    int index=s.find_first_of(f,last);
+    while(index!=-1){
+        vec->push_back(s.substr(last,index-last));
+        last=index+1;
+        index=s.find_first_of(f,last);
+    }
+    //还剩下最后一个分割的字符串
+    vec->push_back(s.substr(last));
+    //cout<<"split finish"<<endl;
+    return vec;
+
+}

@@ -57,9 +57,9 @@ void ServiceTask ::procMsg(TRscMsgHdr *rschdr, TRscMsgBody * rscbody,int msgType
     string rscRuri=rschdr->ruri;
     vector<string> * topicVec=us->splitTopic(rscRuri,'/'); //ruri change to vector<string >  must free
 
-    if(rscHdrCode==200) {//暂时认定200为移动性管理接口的code
+    if(rscHdrCode==0x00000060) {//移动性管理接口的code
         if((*topicVec)[1]=="uaip"){
-
+              proc_uaip(rschdr,rscbody);
         }
         else if((*topicVec)[1]=="satip"){
 
@@ -203,7 +203,42 @@ void ServiceTask :: get_uaip(string userid){
     //rid自己构造 不重复就行
     //code 填写get方式的code
     //taddr.log 填写王任务号
+    //send msg
+    /*
+    TUniNetMsg* unimsg = new TUniNetMsg();
+    TRscMsgHdr* rschdr=new TRscMsgHdr();
+    TRscMsgBody* rscbody=new TRscMsgBody();
 
+    CStr _message_(body.c_str());
+    rscbody->rsc = _message_;
+
+    rschdr->code = 0x00000060; //get
+
+    CStr _ruri_("/uaip");
+    rschdr->ruri = _ruri_;
+
+    count_move++;
+    int int_max=0x7fffffff;
+    if(count_move == int_max)
+        count_move=0;
+
+    string tmps1=us->int_to_string(count_move);
+    CStr _rid_(tmps1.c_str());
+    rschdr->rid = _rid_;
+
+
+    unimsg->tAddr.logAddr = _addr_; //wangpan id
+    unimsg->msgName = RSC_MESSAGE;
+    unimsg->dialogType = DIALOG_MESSAGE;
+    unimsg->msgType = RSC_MESSAGE_TYPE;
+    unimsg->setTransId();
+    //unimsg->setCSeq(11);
+
+    unimsg->setCtrlMsgHdr(rschdr);
+    unimsg->setMsgBody(rscbody);
+    sendMsg(unimsg);
+    */
+     //send msg
 
 }
 
