@@ -43,8 +43,8 @@ public:
     void proc_msg_publish(TRscMsgHdr * head , TRscMsgBody * body);
 
     //state业务
-    void procPUBStateinP(TRscMsgHdr * head , TRscMsgBody * body);
-    void procSUBStateinS(TRscMsgHdr * head, TRscMsgBody * body);
+    void proc_state_pub(TRscMsgHdr * head , TRscMsgBody * body);
+    void proc_state_sub(TRscMsgHdr * head, TRscMsgBody * body);
 
 
     //处理移动性管理部分

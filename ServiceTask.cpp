@@ -14,12 +14,12 @@ void ServiceTask:: proc_msg_notifyack(TRscMsgHdr * head ,TRscMsgBody * body ) { 
 
 
 // state 业务外部接口
-void ServiceTask :: procPUBStateinP(TRscMsgHdr * head , TRscMsgBody * body){
-    publishmng->procPubState(head,body);
+void ServiceTask :: proc_state_pub(TRscMsgHdr * head , TRscMsgBody * body){
+    publishmng->proc_state_pub(head,body);
 }
 
-void ServiceTask :: procSUBStateinS(TRscMsgHdr * head, TRscMsgBody * body){
-    subinfomng->procSubState(head,body);
+void ServiceTask :: proc_state_sub(TRscMsgHdr * head, TRscMsgBody * body){
+    subinfomng->proc_state_sub(head,body);
 }
 
 
@@ -85,7 +85,7 @@ void ServiceTask ::procMsg(TRscMsgHdr *rschdr, TRscMsgBody * rscbody,int msgType
 
                 }
                 else if((*topicVec)[1]=="state"){
-                   procPUBStateinP(rschdr,rscbody);
+                   proc_state_pub(rschdr,rscbody);
                 }
                 break;
             }
@@ -97,7 +97,7 @@ void ServiceTask ::procMsg(TRscMsgHdr *rschdr, TRscMsgBody * rscbody,int msgType
 
                 }
                 else if((*topicVec)[1]=="state"){
-                    procSUBStateinS(rschdr,rscbody);
+                    proc_state_sub(rschdr,rscbody);
                 }
                 break;
             }
@@ -263,6 +263,33 @@ void ServiceTask :: proc_uaip(TRscMsgHdr * head , TRscMsgBody * body){
 
                              //发送完从消息队列中移除消息
                              tmpset->erase(tmps);
+                         }
+                         else if(msgtype=="publishack"){
+                             //send msg 需要msgid userid
+                             set<string > * tmpset2 = publishmng->get_msg_puback_set();
+                             set<string> :: iterator itbegin2=tmpset2->begin();
+                             set<string> :: iterator itend2=tmpset2->end();
+                             vector<string> * readytodel=new vector<string>();
+                             for(;itbegin2!=itend2;itbegin2++){
+                                 string tmps2=*itbegin2;
+                                 vector<string> * msgvec2=us->splitTopic(tmps2,'_');
+                                 if(msgvec2->size()<=1||(*msgvec2)[0]!=userid){
+                                     delete msgvec2;
+                                     continue;
+                                 }
+                                 else{
+                                     string puback_msgid=(*msgvec2)[1];
+                                     //send msg
+                                     readytodel->push_back(tmps2);//将要删除的值存入vector 后面集体删除
+                                     delete msgvec2;
+                                 }
+                             }
+                             vector<string> :: iterator vecit1;
+                             for (vecit1=readytodel->begin(); vecit1!=readytodel->end(); ++vecit1){
+                                 tmpset2->erase(*vecit1);
+                             }
+                             delete readytodel;
+
                          }
                     }
                 }

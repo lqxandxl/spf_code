@@ -78,9 +78,9 @@ void NTFMng:: proc_msg_notifyack(TRscMsgHdr * head ,TRscMsgBody * body){
     itm=ntfmap->find(notifyackmsgid);
     if(itm!=ntfmap->end()){ //find this notifymsg
        if(itm->second->msgstate==0){
-
            //需要让PUBMng模块进行处理notifyack的msg业务消息
            proxy->getPubMng()->proc_msg_notifyack(itm->second->publishmsgid,itm->second->to);
+           //在publish中已经记录了已送达 此时这个notify在map中没有作用了 需要删除节省空间
            NotifyMsg * tmpnotify;
            tmpnotify=itm->second;
            delete tmpnotify;

@@ -14,19 +14,21 @@ SubInfoMng::SubInfoMng(ServiceTask * p){
     root=new SerTreeNode();
     proxy=p;
     substateset=new set<string> ();
+    us=new UtilService();
 
 }
 
 SubInfoMng::~SubInfoMng(){
-    dfsFree(root);
+    dfsTree(root);
     delete substateset;
+    delete us;
 }
 
-void SubInfoMng::dfsFree(SerTreeNode * root){
+void SubInfoMng::dfsTree(SerTreeNode * root){
     if(root==NULL) return;
     int len=(root->childList).size();
     for(int i=0;i<len;i++){
-        dfsFree((root->childList)[i]);
+        dfsTree((root->childList)[i]);
     }
     delete root;
 }
@@ -36,7 +38,7 @@ void SubInfoMng::dfsFree(SerTreeNode * root){
 vector<SerTreeNode* > SubInfoMng:: searchNodeList(string topic){ //添加订阅  若无结点则创建结点 若存在结点则返回结点列表
     vector <string> * tmp1;
     vector <SerTreeNode * > res;
-    tmp1=util.splitTopic(topic,'/'); //分解topic  abc/def/ghi
+    tmp1=us->splitTopic(topic,'/'); //分解topic  abc/def/ghi
     int len=tmp1->size();
     SerTreeNode * current=root;//定位到根节点
     for(int i=0;i<len;i++){
@@ -79,7 +81,7 @@ void SubInfoMng:: add_clientid(vector<SerTreeNode *> & vecst , string clientid){
 vector<SerTreeNode* > SubInfoMng :: PSearchNodeList(string topic){
     vector <string> * tmp1;
     vector <SerTreeNode * > res;
-    tmp1=util.splitTopic(topic,'/'); //分解topic  abc/def/ghi
+    tmp1=us->splitTopic(topic,'/'); //分解topic  abc/def/ghi
     int len=tmp1->size();
     SerTreeNode * current=root;//定位到根节点
     for(int i=0;i<len;i++){
@@ -141,7 +143,7 @@ set<string >  SubInfoMng :: getClientForP(string topic) { //对外提供 将上�
        isdelete : "0"
     }
  */
-void SubInfoMng::procSubState(TRscMsgHdr * rschead , TRscMsgBody * rscbody){
+void SubInfoMng::proc_state_sub(TRscMsgHdr * rschead , TRscMsgBody * rscbody){
       string clientid = rschead->consumer;
       string rid=rschead->rid;
       string str = rscbody->rsc;
@@ -167,8 +169,7 @@ void SubInfoMng::procSubState(TRscMsgHdr * rschead , TRscMsgBody * rscbody){
                 JSONObject msg = it->second->AsObject();
                 JSONObject::const_iterator itmtype = msg.find(L"topic");
                 if (itmtype != msg.end()) {
-                    topic = util.ws2s(itmtype->second->AsString());
-                    //cout<<"topic is" <<topic <<endl;
+                    topic = us->ws2s(itmtype->second->AsString());
                 }
                 JSONObject::const_iterator itmcontent = msg.find(L"isdelete");
                 if (itmcontent != msg.end()) {

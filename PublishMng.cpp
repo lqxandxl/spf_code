@@ -9,6 +9,7 @@ PublishMng::PublishMng(ServiceTask * p) {
     us=new UtilService();
     msg_map = new map <string ,PublishMsg * > ();
     stateSet = new set<string > ();
+    msg_puback_set = new set<string>();
 
 }
 
@@ -24,6 +25,7 @@ PublishMng::~PublishMng(){
     msg_map->clear();
     delete msg_map;
     delete stateSet;
+    delete msg_puback_set;
 
 
 }
@@ -45,7 +47,26 @@ void PublishMng::proc_msg_publish(TRscMsgHdr * rschdr , TRscMsgBody * rscbody) {
     }
     map<string, PublishMsg *>::iterator itum;
     itum = msg_map->find(msgid);
-    if (itum != msg_map->end()) { //find it 认为是重发 不处理
+    if (itum != msg_map->end()) { //find it 认为是重发
+        //notifyack 没有收全 就会导致重发 所以需要检查一下notify发出了哪些 之后重新发送notify
+        vector<string> *vecto = us->splitTopic(to, '&'); //remember to delete
+        PublishMsg * tmppub=itum->second;
+        map < string , int > :: iterator itbegin=tmppub->userstate.begin();
+        map < string , int > :: iterator itend=tmppub->userstate.end();
+        for(;itbegin!=itend;itbegin++){
+            int tmp1=itbegin->second;
+            if(tmp1==0){ //未送达 重新发
+                string newmsgid=tmppub->msgid+"_"+itbegin->first; //加上一个to作为新的msgid的标识
+                int res = proxy->send_map_add(itbegin->first,"msg","notify",newmsgid);
+                if(res==1){
+                    proxy->get_uaip(itbegin->first); //查询地址
+                }
+                else{ //防止内部失败也要查询
+
+                }
+            }
+        }
+        delete vecto;
         return;
     } else {
         PublishMsg *pubmsg = new PublishMsg();
@@ -87,11 +108,7 @@ void PublishMng :: proc_msg_notifyack(string msgid,string to) { //需要知道�
             if(userstateit->second==0){
                 userstateit->second=1;  //改为已经送达
             }
-            else
-                return;
         }
-        else  //to 非法 不做处理
-            return;
         map<string ,int > :: iterator itbegin=tmp1->userstate.begin();
         map<string ,int > :: iterator itend=tmp1->userstate.end();
 
@@ -103,12 +120,18 @@ void PublishMng :: proc_msg_notifyack(string msgid,string to) { //需要知道�
         //走到这一步 证明都是1了 均已送达
 
         //send publish ack
-         cout<<"send publish ack" <<endl;
+        int res = proxy->send_map_add(tmp1->from,"msg","publishack",tmp1->msgid);
+        if(res==1){
+            proxy->get_uaip(tmp1->from); //查询地址
+        }
+        else{ //防止内部失败也要查询
 
+        }
 
+        msg_puback_set->insert(tmp1->msgid);
         //删除publish消息
-         delete tmp1;
-         msg_map->erase(itm);
+        delete tmp1;
+        msg_map->erase(itm);
 
     }
 
@@ -122,7 +145,7 @@ void PublishMng :: proc_msg_notifyack(string msgid,string to) { //需要知道�
        content : "my first topic"
     }
  */
-void PublishMng :: procPubState(TRscMsgHdr * rschdr ,TRscMsgBody * rscbody){
+void PublishMng :: proc_state_pub(TRscMsgHdr * rschdr ,TRscMsgBody * rscbody){
     //string from = rschdr->consumer;
     //string to = rschdr->producer;
     //cout<<"begin to proc pub state1" <<endl;
@@ -186,4 +209,9 @@ void PublishMng :: procPubState(TRscMsgHdr * rschdr ,TRscMsgBody * rscbody){
         }//root
 
     }
+}
+
+
+set<string> * PublishMng :: get_msg_puback_set(){
+    return msg_puback_set;
 }
