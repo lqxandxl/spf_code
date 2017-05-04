@@ -146,17 +146,17 @@ set<string >  SubInfoMng :: getClientForP(string topic) { //对外提供 将上�
 void SubInfoMng::proc_state_sub(TRscMsgHdr * rschead , TRscMsgBody * rscbody){
       string clientid = rschead->consumer;
       string rid=rschead->rid;
+      string originrid=rid;
       string str = rscbody->rsc;
       set <string >  :: iterator tmp1;
       rid=clientid+"_"+rid; //避免不同客户端冲突
       tmp1=substateset->find(rid);
       string topic;
       int isdelete=-1;
-     //cout<<"proc sub state " <<rid <<endl;
-    if(tmp1!=substateset->end()){ //find it no proc
+      if(tmp1!=substateset->end()){ //find it no proc
 
-    }
-    else{
+      }
+      else{
 
         substateset->insert(rid);
         //通过主题查找要发给谁
@@ -176,11 +176,18 @@ void SubInfoMng::proc_state_sub(TRscMsgHdr * rschead , TRscMsgBody * rscbody){
                     isdelete = itmcontent->second->AsNumber();
                 }
             }
-            if(isdelete==0){
-                vector<SerTreeNode* > vec=searchNodeList(topic); //创建订阅结点
-                add_clientid(vec,clientid);//添加订阅者
-                cout<<"send suback to " <<clientid << " topic is "<<topic <<endl;
-                //send suback 200 or 401
+            if (isdelete == 0) {
+                vector<SerTreeNode *> vec = searchNodeList(topic); //创建订阅结点
+                add_clientid(vec, clientid);//添加订阅者
+                //send suback
+                //发送消息
+                //需要调用proxy的方法去将消息添加至map中，并且需要向移动性管理接口发送查询请求一次
+                int res = proxy->send_map_add(clientid, "state", "subscribeack", originrid);
+                if (res == 1) {
+                    proxy->get_uaip(clientid); //查询地址
+                } else { //防止内部失败也要查询
+
+                }
 
             }
             else{ //执行删除订阅逻辑

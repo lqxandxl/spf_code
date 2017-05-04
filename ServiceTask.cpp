@@ -51,6 +51,7 @@ ServiceTask::~ServiceTask() {
 
 void ServiceTask ::procMsg(TRscMsgHdr *rschdr, TRscMsgBody * rscbody,int msgType) {
 
+    TUniNetMsg * unimsg;
 
     if(rschdr==0) return; //非法rsc消息不进行处理
     int rscHdrCode=rschdr->code;
@@ -97,7 +98,24 @@ void ServiceTask ::procMsg(TRscMsgHdr *rschdr, TRscMsgBody * rscbody,int msgType
 
                 }
                 else if((*topicVec)[1]=="state"){
-                    proc_state_sub(rschdr,rscbody);
+                    if(topicVec->size()<3) return ;
+                    if((*topicVec)[2]=="local"){
+                        //查询归属骨干卫星
+                        get_satip(rschdr->consumer);
+                        //local消息一概不处理 放入队列
+                        //收到sat内容后，再分类去相应模块处理 或转发
+                        string tmp1="state";
+                        string name=tmp1+"_"+"subscirbe"+"_"+rschdr->consumer+"_"+rschdr->rid; //生成一个唯一标识
+                        (*local_map)[name]= unimsg;
+
+                        //再用一个以userid为key的map<userid,set<name>> 加速后面的查找
+
+                    }
+                    else if((*topicVec)[2]=="remote"){
+                        proc_state_sub(rschdr,rscbody);
+
+                    }
+
                 }
                 break;
             }
@@ -242,6 +260,16 @@ void ServiceTask :: get_uaip(string userid){
 
 }
 
+void ServiceTask ::get_satip(string userid){
+    JSONObject newJsonObject;
+    newJsonObject[L"uid"]=new (std::nothrow) JSONValue(us->s2ws(userid));
+    JSONValue res=newJsonObject;
+    std::wstring resstr=res.Stringify().c_str();
+    string body=us->ws2s(resstr); //得到body
+    //send msg
+}
+
+
 //针对body进行解析 并执行消息发送
 void ServiceTask :: proc_uaip(TRscMsgHdr * head , TRscMsgBody * body){
     string content=body->rsc;
@@ -280,10 +308,12 @@ void ServiceTask :: proc_uaip(TRscMsgHdr * head , TRscMsgBody * body){
            set<string > * tmpset=it4->second;
            set<string> :: iterator itbegin=tmpset->begin();
            set<string> :: iterator itend=tmpset->end();
+           vector<string> * readytodel=new vector<string>();
             for(;itbegin!=itend;itbegin++){
                 string tmps=*itbegin;
                 vector<string> * msgvec=us->splitTopic(tmps,'&');
                 if(msgvec->size()<=2){
+                    readytodel->push_back(tmps);
                     delete msgvec;
                     continue;
                 }
@@ -297,41 +327,36 @@ void ServiceTask :: proc_uaip(TRscMsgHdr * head , TRscMsgBody * body){
                              //send msg
 
                              //发送完从消息队列中移除消息
-                             tmpset->erase(tmps);
+                             readytodel->push_back(tmps);
                          }
                          else if(msgtype=="publishack"){
                              //send msg 需要msgid userid
-                             set<string > * tmpset2 = publishmng->get_msg_puback_set();
-                             set<string> :: iterator itbegin2=tmpset2->begin();
-                             set<string> :: iterator itend2=tmpset2->end();
-                             vector<string> * readytodel=new vector<string>();
-                             for(;itbegin2!=itend2;itbegin2++){
-                                 string tmps2=*itbegin2;
-                                 vector<string> * msgvec2=us->splitTopic(tmps2,'_');
-                                 if(msgvec2->size()<=1||(*msgvec2)[0]!=userid){
-                                     delete msgvec2;
-                                     continue;
-                                 }
-                                 else{
-                                     string puback_msgid=(*msgvec2)[1];
-                                     //send msg
-                                     readytodel->push_back(tmps2);//将要删除的值存入vector 后面集体删除
-                                     delete msgvec2;
-                                 }
-                             }
-                             vector<string> :: iterator vecit1;
-                             for (vecit1=readytodel->begin(); vecit1!=readytodel->end(); ++vecit1){
-                                 tmpset2->erase(*vecit1);
-                             }
-                             delete readytodel;
 
+
+
+                             //send msg
+                             readytodel->push_back(tmps);//将要删除的值存入vector 后面集体删除
                          }
+                    }
+                    else if(servicename=="state"){
+                        if(msgtype=="subscribeack"){
+                              //有msgid  有userid
+                              //send msg
+
+                              //send msg
+                        }
                     }
                 }
 
 
                 delete msgvec;
             }
+
+            vector<string> :: iterator vecit1;
+            for (vecit1=readytodel->begin(); vecit1!=readytodel->end(); ++vecit1){
+                tmpset->erase(*vecit1);
+            }
+            delete readytodel;
 
         }
         else{
@@ -340,6 +365,47 @@ void ServiceTask :: proc_uaip(TRscMsgHdr * head , TRscMsgBody * body){
 
     }
 
+
+
+
+}
+
+void ServiceTask :: proc_satip(TRscMsgHdr * head , TRscMsgBody * body){ //处理骨干卫星归属结果
+
+    //map string
+    //string name="state"+"_"+"subscirbe"+"_"+rschdr->consumer+"_"+rschdr->rid; //生成一个唯一标识
+    string content=body->rsc;
+    string userid;
+    string satip;
+    string status;
+    JSONValue * recjv=JSON::Parse(content.c_str());
+    if(recjv==NULL||!recjv->IsObject()) return ;
+    JSONObject root=recjv->AsObject();
+    JSONObject::const_iterator it=root.find(L"uid");
+    if(it!=root.end()){//have found
+        if(it->second->IsString()){
+            wstring str = it->second->AsString();
+            userid=us->ws2s(str);
+        }
+    }
+    JSONObject::const_iterator it2=root.find(L"status");
+    if(it2!=root.end()){//have found
+        if(it2->second->IsString()){
+            wstring str = it2->second->AsString();
+            status=us->ws2s(str);
+        }
+    }
+    JSONObject::const_iterator it3=root.find(L"satip");
+    if(it3!=root.end()){//have found
+        if(it3->second->IsString()){
+            wstring str = it3->second->AsString();
+            satip=us->ws2s(str);
+        }
+    }
+
+    if(status=="1"&&satip.length()>0){ //用户合法 且 有结果
+
+    }
 
 
 

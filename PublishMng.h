@@ -33,10 +33,9 @@ public:
     //处理state业务
     void proc_state_pub(TRscMsgHdr * head ,TRscMsgBody * rscbody); //处理状态推送类消息 这样的消息 需要去查询订阅树
 
-    set<string> * get_msg_puback_set();
+
 private:
     map<string , PublishMsg *>  * msg_map;   //存放 msgid 和 msg消息的指针  当收到ack时 检查msg状态
-    set<string> * msg_puback_set; //存放publishack的msgid 可以拆开
 
     // 当发送完notify 收到notifyack 则可以删除publsihMsg消息了
     set<string >  * stateSet;

@@ -9,7 +9,6 @@ PublishMng::PublishMng(ServiceTask * p) {
     us=new UtilService();
     msg_map = new map <string ,PublishMsg * > ();
     stateSet = new set<string > ();
-    msg_puback_set = new set<string>();
 
 }
 
@@ -25,7 +24,6 @@ PublishMng::~PublishMng(){
     msg_map->clear();
     delete msg_map;
     delete stateSet;
-    delete msg_puback_set;
 
 
 }
@@ -120,7 +118,11 @@ void PublishMng :: proc_msg_notifyack(string msgid,string to) { //需要知道�
         //走到这一步 证明都是1了 均已送达
 
         //send publish ack
-        int res = proxy->send_map_add(tmp1->from,"msg","publishack",tmp1->msgid);
+        //tmp1 msgid 为 from_rid  在这里拆开 后面就不用拆了 减少发送时间
+        vector<string> * msgvec2=us->splitTopic(tmp1->msgid,'_');
+        string puback_msgid = (*msgvec2)[1];
+        int res = proxy->send_map_add(tmp1->from,"msg","publishack",puback_msgid);
+        delete msgvec2;
         if(res==1){
             proxy->get_uaip(tmp1->from); //查询地址
         }
@@ -128,7 +130,7 @@ void PublishMng :: proc_msg_notifyack(string msgid,string to) { //需要知道�
 
         }
 
-        msg_puback_set->insert(tmp1->msgid);
+
         //删除publish消息
         delete tmp1;
         msg_map->erase(itm);
@@ -146,20 +148,18 @@ void PublishMng :: proc_msg_notifyack(string msgid,string to) { //需要知道�
     }
  */
 void PublishMng :: proc_state_pub(TRscMsgHdr * rschdr ,TRscMsgBody * rscbody){
-    //string from = rschdr->consumer;
-    //string to = rschdr->producer;
-    //cout<<"begin to proc pub state1" <<endl;
 
-    string rid = rschdr->rid;
-    string str = rscbody->rsc;
-    //cout<<"str is " <<str<<endl;
+    string rid  = rschdr->rid;
+    string str  = rscbody->rsc;
+    string from = rschdr->consumer;
+
     set <string >  :: iterator tmp1;
     tmp1=stateSet->find(rid);
     if(tmp1!=stateSet->end()){ //find it no proc
 
     }
     else{
-       //cout<<"begin to proc pub state2" <<endl;
+
        stateSet->insert(rid);
        string topic;
        string content;
@@ -174,16 +174,13 @@ void PublishMng :: proc_state_pub(TRscMsgHdr * rschdr ,TRscMsgBody * rscbody){
                 JSONObject::const_iterator itmtype = msg.find(L"topic");
                 if (itmtype != msg.end()) {
                     topic = us->ws2s(itmtype->second->AsString());
-                    //cout<<"topic is" <<topic <<endl;
                 }
                 JSONObject::const_iterator itmcontent = msg.find(L"content");
                 if (itmcontent != msg.end()) {
                     content = us->ws2s(itmcontent->second->AsString());
-                    //cout<<"content is " <<content <<endl;
                 }
             }
-            //cout<<"topic is" <<topic <<endl;
-            //cout<<"content is " <<content <<endl;
+
 
             set <string > clientSet;
             clientSet  =  proxy->getSubMng()->getClientForP(topic);
@@ -191,7 +188,6 @@ void PublishMng :: proc_state_pub(TRscMsgHdr * rschdr ,TRscMsgBody * rscbody){
                 set <string > :: iterator itbegin=clientSet.begin();
                 set <string > :: iterator itend=clientSet.end();
                 for(;itbegin!=itend;itbegin++){
-                    cout << "send pub to " << *itbegin <<endl;
                     //生成新的publish消息
                     JSONObject newJsonObject;
                     JSONObject innerJsobj;
@@ -212,6 +208,3 @@ void PublishMng :: proc_state_pub(TRscMsgHdr * rschdr ,TRscMsgBody * rscbody){
 }
 
 
-set<string> * PublishMng :: get_msg_puback_set(){
-    return msg_puback_set;
-}

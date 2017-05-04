@@ -28,6 +28,8 @@ public:
 
 };
 
+class TUniNetMsg{
 
+};
 
 #endif //SPFCODE_MSGDEF_RSC_H
