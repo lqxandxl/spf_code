@@ -38,7 +38,7 @@ void SubInfoMng::dfsTree(SerTreeNode * root){
 vector<SerTreeNode* > SubInfoMng:: searchNodeList(string topic){ //添加订阅  若无结点则创建结点 若存在结点则返回结点列表
     vector <string> * tmp1;
     vector <SerTreeNode * > res;
-    tmp1=us->splitTopic(topic,'/'); //分解topic  abc/def/ghi
+    tmp1=us->splitRuri(topic,'/'); //分解topic  /abc/def/ghi
     int len=tmp1->size();
     SerTreeNode * current=root;//定位到根节点
     for(int i=0;i<len;i++){
@@ -78,10 +78,22 @@ void SubInfoMng:: add_clientid(vector<SerTreeNode *> & vecst , string clientid){
 
 }
 
+
+void SubInfoMng:: remove_clientid(vector<SerTreeNode *> & vecst , string clientid){//移除订阅者
+
+    int len = vecst.size();
+    for(int i=0;i<len;i++){
+        vecst[i]->clientSet.erase(clientid);
+    }
+
+}
+
+
+
 vector<SerTreeNode* > SubInfoMng :: PSearchNodeList(string topic){
     vector <string> * tmp1;
     vector <SerTreeNode * > res;
-    tmp1=us->splitTopic(topic,'/'); //分解topic  abc/def/ghi
+    tmp1=us->splitRuri(topic,'/'); //分解topic  /abc/def/ghi
     int len=tmp1->size();
     SerTreeNode * current=root;//定位到根节点
     for(int i=0;i<len;i++){
@@ -139,7 +151,7 @@ set<string >  SubInfoMng :: getClientForP(string topic) { //对外提供 将上�
    isdelete用来 作为是否添加订阅 或者是退订
 
     state:{
-       topic: "abc/def/ghi",
+       topic: "/abc/def/ghi",
        isdelete : "0"
     }
  */
@@ -179,22 +191,11 @@ void SubInfoMng::proc_state_sub(TRscMsgHdr * rschead , TRscMsgBody * rscbody){
             if (isdelete == 0) {
                 vector<SerTreeNode *> vec = searchNodeList(topic); //创建订阅结点
                 add_clientid(vec, clientid);//添加订阅者
-                //send suback
-                //发送消息
-                //需要调用proxy的方法去将消息添加至map中，并且需要向移动性管理接口发送查询请求一次
-                int res = proxy->send_map_add(clientid, "state", "subscribeack", originrid);
-                if (res == 1) {
-                    proxy->get_uaip(clientid); //查询地址
-                } else { //防止内部失败也要查询
-
-                }
-
             }
-            else{ //执行删除订阅逻辑
-
+            else { //执行删除订阅逻辑
+                vector<SerTreeNode *> vec = searchNodeList(topic); //创建订阅结点
+                remove_clientid(vec, clientid);//添加订阅者
             }
-
-
 
         }//root
 

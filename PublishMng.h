@@ -37,8 +37,11 @@ public:
 private:
     map<string , PublishMsg *>  * msg_map;   //存放 msgid 和 msg消息的指针  当收到ack时 检查msg状态
 
-    // 当发送完notify 收到notifyack 则可以删除publsihMsg消息了
-    set<string >  * stateSet;
+    //state 业务
+    set<string >  * stateSet; //防止重复处理pub请求
+    map<string,string> * topic_map; //按topic以及rscbody存储 便于发送
+
+
     UtilService * us;
     ServiceTask * proxy;
 

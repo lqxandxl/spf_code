@@ -115,3 +115,18 @@ void PublishMng ::showMsgMap() {
     }
 
 }
+
+
+
+//生成一个新的publish json
+//生成新的publish消息
+JSONObject newJsonObject;
+JSONObject innerJsobj;
+innerJsobj[L"topic"]=new (std::nothrow) JSONValue(us->s2ws(topic));
+innerJsobj[L"content"]=new (std::nothrow) JSONValue(us->s2ws(content));
+//JSONValue res=innerJsobj;
+newJsonObject[L"state"]=new (std::nothrow) JSONValue(innerJsobj);
+JSONValue res=newJsonObject;
+//res.Stringify();
+std::wstring resstr=res.Stringify().c_str();
+string jsoncontent = us->ws2s(resstr); //body 内容

@@ -30,6 +30,9 @@ ServiceTask :: ServiceTask(){
     subinfomng = new SubInfoMng(this);
     us=new UtilService();
     send_map=new map<string,set<string> * > ();
+    //local
+    local_map=new map<string ,TUniNetMsg*>();
+    acc_map=new map<string, set<string> * >();
 
 }
 ServiceTask::~ServiceTask() {
@@ -46,6 +49,25 @@ ServiceTask::~ServiceTask() {
     }
     send_map->clear();
     delete send_map;
+
+    //清map
+    map<string , set<string> *> :: iterator itbegin1=acc_map->begin();
+    map<string , set<string> *> :: iterator itend1=acc_map->end();
+    for(;itbegin1!=itend1;itbegin1++){
+        set<string>  * tmp=itbegin1->second;
+        delete tmp;
+    }
+    acc_map->clear();
+    delete acc_map;
+
+    map<string , TUniNetMsg*> :: iterator itbegin2=local_map->begin();
+    map<string , TUniNetMsg*> :: iterator itend2=local_map->end();
+    for(;itbegin2!=itend2;itbegin2++){
+        TUniNetMsg  * tmp=itbegin2->second;
+        delete tmp;
+    }
+    local_map->clear();
+    delete local_map;
 }
 
 
@@ -56,7 +78,7 @@ void ServiceTask ::procMsg(TRscMsgHdr *rschdr, TRscMsgBody * rscbody,int msgType
     if(rschdr==0) return; //非法rsc消息不进行处理
     int rscHdrCode=rschdr->code;
     string rscRuri=rschdr->ruri;
-    vector<string> * topicVec=us->splitTopic(rscRuri,'/'); //ruri change to vector<string >  must free
+    vector<string> * topicVec=us->splitRuri(rscRuri,'/'); //ruri change to vector<string >  must free
 
     if(rscHdrCode==0x00000060) {//移动性管理接口的code
         if((*topicVec)[1]=="uaip"){
@@ -85,34 +107,82 @@ void ServiceTask ::procMsg(TRscMsgHdr *rschdr, TRscMsgBody * rscbody,int msgType
                 else if((*topicVec)[1]=="dlg"){
 
                 }
-                else if((*topicVec)[1]=="state"){
-                   proc_state_pub(rschdr,rscbody);
-                }
-                break;
-            }
-            case SUBSCRIBE :{
-                if((*topicVec)[1]=="msg"){
-
-                }
-                else if((*topicVec)[1]=="dlg"){
-
-                }
-                else if((*topicVec)[1]=="state"){
-                    if(topicVec->size()<3) return ;
-                    if((*topicVec)[2]=="local"){
+                else if ((*topicVec)[1] == "state") {
+                    if (topicVec->size() < 3) return;
+                    if ((*topicVec)[2] == "local") {
                         //查询归属骨干卫星
                         get_satip(rschdr->consumer);
                         //local消息一概不处理 放入队列
                         //收到sat内容后，再分类去相应模块处理 或转发
-                        string tmp1="state";
-                        string name=tmp1+"_"+"subscirbe"+"_"+rschdr->consumer+"_"+rschdr->rid; //生成一个唯一标识
-                        (*local_map)[name]= unimsg;
+                        string tmp1 = "state";
+                        string name = tmp1 + "_" + "publish" + "_" + rschdr->consumer + "_" + rschdr->rid; //生成一个唯一标识
+                        (*local_map)[name] = unimsg;
 
                         //再用一个以userid为key的map<userid,set<name>> 加速后面的查找
+                        map<string, set<string> *>::iterator itacc;
+                        itacc = acc_map->find(rschdr->consumer);
+                        if (itacc != acc_map->end()) { //find it
+                            set<string> *tmpaccset = itacc->second;
+                            tmpaccset->insert(name);
+                        } else {
+                            (*acc_map)[rschdr->consumer] = new set<string>();
+                            map<string, set<string> *>::iterator tmpacc;
+                            tmpacc = acc_map->find(rschdr->consumer);
+                            set<string> *tmpaccset = tmpacc->second;
+                            tmpaccset->insert(name);
+                        }
+
+
+                    } else if ((*topicVec)[2] == "remote") {
+
+                        proc_state_pub(rschdr, rscbody);
+
+                        //send puback
 
                     }
-                    else if((*topicVec)[2]=="remote"){
-                        proc_state_sub(rschdr,rscbody);
+
+                }
+
+
+
+                break;
+            }
+            case SUBSCRIBE : {
+                if ((*topicVec)[1] == "msg") {
+
+                } else if ((*topicVec)[1] == "dlg") {
+
+                } else if ((*topicVec)[1] == "state") {
+                    if (topicVec->size() < 3) return;
+                    if ((*topicVec)[2] == "local") {
+                        //查询归属骨干卫星
+                        get_satip(rschdr->consumer);
+                        //local消息一概不处理 放入队列
+                        //收到sat内容后，再分类去相应模块处理 或转发
+                        string tmp1 = "state";
+                        string name = tmp1 + "_" + "subscirbe" + "_" + rschdr->consumer + "_" + rschdr->rid; //生成一个唯一标识
+                        (*local_map)[name] = unimsg;
+
+                        //再用一个以userid为key的map<userid,set<name>> 加速后面的查找
+                        map<string, set<string> *>::iterator itacc;
+                        itacc = acc_map->find(rschdr->consumer);
+                        if (itacc != acc_map->end()) { //find it
+                            set<string> *tmpaccset = itacc->second;
+                            tmpaccset->insert(name);
+                        } else {
+                            (*acc_map)[rschdr->consumer] = new set<string>();
+                            map<string, set<string> *>::iterator tmpacc;
+                            tmpacc = acc_map->find(rschdr->consumer);
+                            set<string> *tmpaccset = tmpacc->second;
+                            tmpaccset->insert(name);
+                        }
+
+
+                    } else if ((*topicVec)[2] == "remote") {
+
+                        proc_state_sub(rschdr, rscbody);
+
+                        //send suback
 
                     }
 
@@ -204,6 +274,36 @@ int ServiceTask :: send_map_add(string userid, string servicename, string msgtyp
     }
     return 1;
 }
+
+
+int ServiceTask :: send_map_add(string userid, string servicename, string msgtype,string msgid,string topic){
+    map<string , set<string> *> :: iterator it1;
+    if(userid.length()==0) return -1;
+    it1=send_map->find(userid);
+    if(it1!=send_map->end()){ //找到后对set进行操作
+        set <string> * tmpset=it1->second;
+        set<string > :: iterator it2;
+        string newmsgid=servicename+"&"+msgtype+"&"+msgid+"&"+topic;
+        it2=tmpset->find(newmsgid);
+        if(it2!=tmpset->end()){
+            return -1;
+        }
+        else{
+            tmpset->insert(newmsgid);
+            return 1;
+        }
+    }
+    else{ //没找到添加元素
+        (*send_map)[userid]=new set<string>();
+        set<string> * tmpset=(*send_map)[userid];
+        string newmsgid=servicename+"&"+msgtype+"&"+msgid+"&"+topic;
+        tmpset->insert(newmsgid);
+    }
+    return 1;
+}
+
+
+
 
 /*
  *  构造一个json
@@ -404,6 +504,75 @@ void ServiceTask :: proc_satip(TRscMsgHdr * head , TRscMsgBody * body){ //处理
     }
 
     if(status=="1"&&satip.length()>0){ //用户合法 且 有结果
+
+        map<string , set<string> * > :: iterator it4;
+        it4=acc_map->find(userid);
+        if(it4!=send_map->end()){ //find it
+            set<string > * tmpset=it4->second;
+            set<string> :: iterator itbegin=tmpset->begin();
+            set<string> :: iterator itend=tmpset->end();
+            vector<string> * readytodel=new vector<string>();
+            for(;itbegin!=itend;itbegin++){
+                string tmps=*itbegin;  //tmps 在这里是一长串msgid
+                vector<string> * msgvec=us->splitTopic(tmps,'_');
+                if(msgvec->size()<=3){
+                    readytodel->push_back(tmps);
+                    delete msgvec;
+                    continue;
+                }
+                else{
+                    string servicename=(*msgvec)[0];
+                    string msgtype=(*msgvec)[1];
+                    string fromid=(*msgvec)[2];
+                    string rid=(*msgvec)[3];
+                    if(servicename=="state"){
+                        if(msgtype=="subscribe"){ //need to send notify
+                            vector<string > * ipvec=us->splitTopic(satip,':');
+                            if(local_ip==(*ipvec)[0]){ //本机
+
+                                //proc_state_sub(head,body); 直接处理消息
+
+                            }
+                            delete ipvec;
+                            //通过tmps取出消息后 将ruri修改为/service/state/remote
+                            //rid consumer都还在 不做区分 真正处理时再和一起
+                            //send msg
+
+                            //发送完从消息队列中移除消息
+                            readytodel->push_back(tmps);
+                        }
+                        else if(msgtype=="publish"){
+                            //通过tmps取出消息后 将ruri修改为/service/state/remote
+                            vector<string > * ipvec=us->splitTopic(satip,':');
+                            if(local_ip==(*ipvec)[0]){ //本机
+
+                                //proc_state_pub(head,body); 直接处理消息
+
+                            }
+                            delete ipvec;
+
+
+                            //send msg 需要msgid userid
+
+                            //send msg
+                            readytodel->push_back(tmps);//将要删除的值存入vector 后面集体删除
+                        }
+                    }
+                }
+
+                delete msgvec;
+            }
+
+            vector<string> :: iterator vecit1;
+            for (vecit1=readytodel->begin(); vecit1!=readytodel->end(); ++vecit1){
+                tmpset->erase(*vecit1);
+            }
+            delete readytodel;
+
+        }
+        else{
+
+        }
 
     }
 

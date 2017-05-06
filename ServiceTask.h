@@ -57,6 +57,7 @@ public:
     PublishMng * getPubMng();
 
     int send_map_add(string userid, string servicename, string msgtype,string msgid);
+    int send_map_add(string userid, string servicename, string msgtype,string msgid,string topic);//为state publish下发做准备
     void get_uaip(string userid);
     void get_satip(string userid); //查询归属骨干卫星
 
@@ -69,8 +70,13 @@ private:
 
     //为了发送消息 需要将userid 以及 其对应的要发送的消息 存放为map
     map<string , set<string> * > * send_map;  //userid --->  <xxx_msgid> msgid 比如为 msg&notify&msgid
+
     //local 消息缓存队列
     map<string, TUniNetMsg* > * local_map;
+    map<string , set<string> * > * acc_map; // key为userid  value为属于该userid的所有local消息
+
+    string local_ip; //本地ip以及端口
+    int  local_port;
 
 };
 #endif //SPFCODE_PROXY_H

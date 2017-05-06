@@ -42,10 +42,10 @@ RM = "C:\Program Files\JetBrains\CLion 2017.1.1\bin\cmake\bin\cmake.exe" -E remo
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\c study\spf_code"
+CMAKE_SOURCE_DIR = E:\study\spf_code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\c study\spf_code\cmake-build-debug"
+CMAKE_BINARY_DIR = E:\study\spf_code\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/spfcode.dir/depend.make
@@ -58,16 +58,16 @@ include CMakeFiles/spfcode.dir/flags.make
 
 CMakeFiles/spfcode.dir/main.cpp.obj: CMakeFiles/spfcode.dir/flags.make
 CMakeFiles/spfcode.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\c study\spf_code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/spfcode.dir/main.cpp.obj"
-	C:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\main.cpp.obj -c "C:\c study\spf_code\main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\study\spf_code\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/spfcode.dir/main.cpp.obj"
+	E:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\main.cpp.obj -c E:\study\spf_code\main.cpp
 
 CMakeFiles/spfcode.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spfcode.dir/main.cpp.i"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\c study\spf_code\main.cpp" > CMakeFiles\spfcode.dir\main.cpp.i
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\study\spf_code\main.cpp > CMakeFiles\spfcode.dir\main.cpp.i
 
 CMakeFiles/spfcode.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spfcode.dir/main.cpp.s"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\c study\spf_code\main.cpp" -o CMakeFiles\spfcode.dir\main.cpp.s
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\study\spf_code\main.cpp -o CMakeFiles\spfcode.dir\main.cpp.s
 
 CMakeFiles/spfcode.dir/main.cpp.obj.requires:
 
@@ -82,16 +82,16 @@ CMakeFiles/spfcode.dir/main.cpp.obj.provides.build: CMakeFiles/spfcode.dir/main.
 
 CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj: CMakeFiles/spfcode.dir/flags.make
 CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj: ../SubInfoMng.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\c study\spf_code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj"
-	C:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\SubInfoMng.cpp.obj -c "C:\c study\spf_code\SubInfoMng.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\study\spf_code\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj"
+	E:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\SubInfoMng.cpp.obj -c E:\study\spf_code\SubInfoMng.cpp
 
 CMakeFiles/spfcode.dir/SubInfoMng.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spfcode.dir/SubInfoMng.cpp.i"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\c study\spf_code\SubInfoMng.cpp" > CMakeFiles\spfcode.dir\SubInfoMng.cpp.i
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\study\spf_code\SubInfoMng.cpp > CMakeFiles\spfcode.dir\SubInfoMng.cpp.i
 
 CMakeFiles/spfcode.dir/SubInfoMng.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spfcode.dir/SubInfoMng.cpp.s"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\c study\spf_code\SubInfoMng.cpp" -o CMakeFiles\spfcode.dir\SubInfoMng.cpp.s
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\study\spf_code\SubInfoMng.cpp -o CMakeFiles\spfcode.dir\SubInfoMng.cpp.s
 
 CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj.requires:
 
@@ -106,16 +106,16 @@ CMakeFiles/spfcode.dir/SubInfoMng.cpp.obj.provides.build: CMakeFiles/spfcode.dir
 
 CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj: CMakeFiles/spfcode.dir/flags.make
 CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj: ../SerTreeNode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\c study\spf_code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj"
-	C:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\SerTreeNode.cpp.obj -c "C:\c study\spf_code\SerTreeNode.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\study\spf_code\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj"
+	E:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\SerTreeNode.cpp.obj -c E:\study\spf_code\SerTreeNode.cpp
 
 CMakeFiles/spfcode.dir/SerTreeNode.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spfcode.dir/SerTreeNode.cpp.i"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\c study\spf_code\SerTreeNode.cpp" > CMakeFiles\spfcode.dir\SerTreeNode.cpp.i
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\study\spf_code\SerTreeNode.cpp > CMakeFiles\spfcode.dir\SerTreeNode.cpp.i
 
 CMakeFiles/spfcode.dir/SerTreeNode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spfcode.dir/SerTreeNode.cpp.s"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\c study\spf_code\SerTreeNode.cpp" -o CMakeFiles\spfcode.dir\SerTreeNode.cpp.s
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\study\spf_code\SerTreeNode.cpp -o CMakeFiles\spfcode.dir\SerTreeNode.cpp.s
 
 CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj.requires:
 
@@ -130,16 +130,16 @@ CMakeFiles/spfcode.dir/SerTreeNode.cpp.obj.provides.build: CMakeFiles/spfcode.di
 
 CMakeFiles/spfcode.dir/UtilService.cpp.obj: CMakeFiles/spfcode.dir/flags.make
 CMakeFiles/spfcode.dir/UtilService.cpp.obj: ../UtilService.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\c study\spf_code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/spfcode.dir/UtilService.cpp.obj"
-	C:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\UtilService.cpp.obj -c "C:\c study\spf_code\UtilService.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\study\spf_code\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/spfcode.dir/UtilService.cpp.obj"
+	E:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\UtilService.cpp.obj -c E:\study\spf_code\UtilService.cpp
 
 CMakeFiles/spfcode.dir/UtilService.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spfcode.dir/UtilService.cpp.i"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\c study\spf_code\UtilService.cpp" > CMakeFiles\spfcode.dir\UtilService.cpp.i
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\study\spf_code\UtilService.cpp > CMakeFiles\spfcode.dir\UtilService.cpp.i
 
 CMakeFiles/spfcode.dir/UtilService.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spfcode.dir/UtilService.cpp.s"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\c study\spf_code\UtilService.cpp" -o CMakeFiles\spfcode.dir\UtilService.cpp.s
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\study\spf_code\UtilService.cpp -o CMakeFiles\spfcode.dir\UtilService.cpp.s
 
 CMakeFiles/spfcode.dir/UtilService.cpp.obj.requires:
 
@@ -154,16 +154,16 @@ CMakeFiles/spfcode.dir/UtilService.cpp.obj.provides.build: CMakeFiles/spfcode.di
 
 CMakeFiles/spfcode.dir/JSON.cpp.obj: CMakeFiles/spfcode.dir/flags.make
 CMakeFiles/spfcode.dir/JSON.cpp.obj: ../JSON.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\c study\spf_code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/spfcode.dir/JSON.cpp.obj"
-	C:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\JSON.cpp.obj -c "C:\c study\spf_code\JSON.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\study\spf_code\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/spfcode.dir/JSON.cpp.obj"
+	E:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\JSON.cpp.obj -c E:\study\spf_code\JSON.cpp
 
 CMakeFiles/spfcode.dir/JSON.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spfcode.dir/JSON.cpp.i"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\c study\spf_code\JSON.cpp" > CMakeFiles\spfcode.dir\JSON.cpp.i
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\study\spf_code\JSON.cpp > CMakeFiles\spfcode.dir\JSON.cpp.i
 
 CMakeFiles/spfcode.dir/JSON.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spfcode.dir/JSON.cpp.s"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\c study\spf_code\JSON.cpp" -o CMakeFiles\spfcode.dir\JSON.cpp.s
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\study\spf_code\JSON.cpp -o CMakeFiles\spfcode.dir\JSON.cpp.s
 
 CMakeFiles/spfcode.dir/JSON.cpp.obj.requires:
 
@@ -178,16 +178,16 @@ CMakeFiles/spfcode.dir/JSON.cpp.obj.provides.build: CMakeFiles/spfcode.dir/JSON.
 
 CMakeFiles/spfcode.dir/JSONValue.cpp.obj: CMakeFiles/spfcode.dir/flags.make
 CMakeFiles/spfcode.dir/JSONValue.cpp.obj: ../JSONValue.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\c study\spf_code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/spfcode.dir/JSONValue.cpp.obj"
-	C:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\JSONValue.cpp.obj -c "C:\c study\spf_code\JSONValue.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\study\spf_code\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/spfcode.dir/JSONValue.cpp.obj"
+	E:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\JSONValue.cpp.obj -c E:\study\spf_code\JSONValue.cpp
 
 CMakeFiles/spfcode.dir/JSONValue.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spfcode.dir/JSONValue.cpp.i"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\c study\spf_code\JSONValue.cpp" > CMakeFiles\spfcode.dir\JSONValue.cpp.i
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\study\spf_code\JSONValue.cpp > CMakeFiles\spfcode.dir\JSONValue.cpp.i
 
 CMakeFiles/spfcode.dir/JSONValue.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spfcode.dir/JSONValue.cpp.s"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\c study\spf_code\JSONValue.cpp" -o CMakeFiles\spfcode.dir\JSONValue.cpp.s
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\study\spf_code\JSONValue.cpp -o CMakeFiles\spfcode.dir\JSONValue.cpp.s
 
 CMakeFiles/spfcode.dir/JSONValue.cpp.obj.requires:
 
@@ -202,16 +202,16 @@ CMakeFiles/spfcode.dir/JSONValue.cpp.obj.provides.build: CMakeFiles/spfcode.dir/
 
 CMakeFiles/spfcode.dir/ServiceTask.cpp.obj: CMakeFiles/spfcode.dir/flags.make
 CMakeFiles/spfcode.dir/ServiceTask.cpp.obj: ../ServiceTask.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\c study\spf_code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/spfcode.dir/ServiceTask.cpp.obj"
-	C:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\ServiceTask.cpp.obj -c "C:\c study\spf_code\ServiceTask.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\study\spf_code\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/spfcode.dir/ServiceTask.cpp.obj"
+	E:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\ServiceTask.cpp.obj -c E:\study\spf_code\ServiceTask.cpp
 
 CMakeFiles/spfcode.dir/ServiceTask.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spfcode.dir/ServiceTask.cpp.i"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\c study\spf_code\ServiceTask.cpp" > CMakeFiles\spfcode.dir\ServiceTask.cpp.i
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\study\spf_code\ServiceTask.cpp > CMakeFiles\spfcode.dir\ServiceTask.cpp.i
 
 CMakeFiles/spfcode.dir/ServiceTask.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spfcode.dir/ServiceTask.cpp.s"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\c study\spf_code\ServiceTask.cpp" -o CMakeFiles\spfcode.dir\ServiceTask.cpp.s
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\study\spf_code\ServiceTask.cpp -o CMakeFiles\spfcode.dir\ServiceTask.cpp.s
 
 CMakeFiles/spfcode.dir/ServiceTask.cpp.obj.requires:
 
@@ -226,16 +226,16 @@ CMakeFiles/spfcode.dir/ServiceTask.cpp.obj.provides.build: CMakeFiles/spfcode.di
 
 CMakeFiles/spfcode.dir/PublishMng.cpp.obj: CMakeFiles/spfcode.dir/flags.make
 CMakeFiles/spfcode.dir/PublishMng.cpp.obj: ../PublishMng.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\c study\spf_code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/spfcode.dir/PublishMng.cpp.obj"
-	C:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\PublishMng.cpp.obj -c "C:\c study\spf_code\PublishMng.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\study\spf_code\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/spfcode.dir/PublishMng.cpp.obj"
+	E:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\PublishMng.cpp.obj -c E:\study\spf_code\PublishMng.cpp
 
 CMakeFiles/spfcode.dir/PublishMng.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spfcode.dir/PublishMng.cpp.i"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\c study\spf_code\PublishMng.cpp" > CMakeFiles\spfcode.dir\PublishMng.cpp.i
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\study\spf_code\PublishMng.cpp > CMakeFiles\spfcode.dir\PublishMng.cpp.i
 
 CMakeFiles/spfcode.dir/PublishMng.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spfcode.dir/PublishMng.cpp.s"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\c study\spf_code\PublishMng.cpp" -o CMakeFiles\spfcode.dir\PublishMng.cpp.s
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\study\spf_code\PublishMng.cpp -o CMakeFiles\spfcode.dir\PublishMng.cpp.s
 
 CMakeFiles/spfcode.dir/PublishMng.cpp.obj.requires:
 
@@ -250,16 +250,16 @@ CMakeFiles/spfcode.dir/PublishMng.cpp.obj.provides.build: CMakeFiles/spfcode.dir
 
 CMakeFiles/spfcode.dir/SerMessage.cpp.obj: CMakeFiles/spfcode.dir/flags.make
 CMakeFiles/spfcode.dir/SerMessage.cpp.obj: ../SerMessage.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\c study\spf_code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/spfcode.dir/SerMessage.cpp.obj"
-	C:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\SerMessage.cpp.obj -c "C:\c study\spf_code\SerMessage.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\study\spf_code\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/spfcode.dir/SerMessage.cpp.obj"
+	E:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\SerMessage.cpp.obj -c E:\study\spf_code\SerMessage.cpp
 
 CMakeFiles/spfcode.dir/SerMessage.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spfcode.dir/SerMessage.cpp.i"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\c study\spf_code\SerMessage.cpp" > CMakeFiles\spfcode.dir\SerMessage.cpp.i
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\study\spf_code\SerMessage.cpp > CMakeFiles\spfcode.dir\SerMessage.cpp.i
 
 CMakeFiles/spfcode.dir/SerMessage.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spfcode.dir/SerMessage.cpp.s"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\c study\spf_code\SerMessage.cpp" -o CMakeFiles\spfcode.dir\SerMessage.cpp.s
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\study\spf_code\SerMessage.cpp -o CMakeFiles\spfcode.dir\SerMessage.cpp.s
 
 CMakeFiles/spfcode.dir/SerMessage.cpp.obj.requires:
 
@@ -274,16 +274,16 @@ CMakeFiles/spfcode.dir/SerMessage.cpp.obj.provides.build: CMakeFiles/spfcode.dir
 
 CMakeFiles/spfcode.dir/NTFMng.cpp.obj: CMakeFiles/spfcode.dir/flags.make
 CMakeFiles/spfcode.dir/NTFMng.cpp.obj: ../NTFMng.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\c study\spf_code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/spfcode.dir/NTFMng.cpp.obj"
-	C:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\NTFMng.cpp.obj -c "C:\c study\spf_code\NTFMng.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\study\spf_code\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/spfcode.dir/NTFMng.cpp.obj"
+	E:\mingw\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spfcode.dir\NTFMng.cpp.obj -c E:\study\spf_code\NTFMng.cpp
 
 CMakeFiles/spfcode.dir/NTFMng.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spfcode.dir/NTFMng.cpp.i"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\c study\spf_code\NTFMng.cpp" > CMakeFiles\spfcode.dir\NTFMng.cpp.i
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\study\spf_code\NTFMng.cpp > CMakeFiles\spfcode.dir\NTFMng.cpp.i
 
 CMakeFiles/spfcode.dir/NTFMng.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spfcode.dir/NTFMng.cpp.s"
-	C:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\c study\spf_code\NTFMng.cpp" -o CMakeFiles\spfcode.dir\NTFMng.cpp.s
+	E:\mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\study\spf_code\NTFMng.cpp -o CMakeFiles\spfcode.dir\NTFMng.cpp.s
 
 CMakeFiles/spfcode.dir/NTFMng.cpp.obj.requires:
 
@@ -326,7 +326,7 @@ spfcode.exe: CMakeFiles/spfcode.dir/build.make
 spfcode.exe: CMakeFiles/spfcode.dir/linklibs.rsp
 spfcode.exe: CMakeFiles/spfcode.dir/objects1.rsp
 spfcode.exe: CMakeFiles/spfcode.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\c study\spf_code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable spfcode.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\study\spf_code\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable spfcode.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\spfcode.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -352,6 +352,6 @@ CMakeFiles/spfcode.dir/clean:
 .PHONY : CMakeFiles/spfcode.dir/clean
 
 CMakeFiles/spfcode.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\c study\spf_code" "C:\c study\spf_code" "C:\c study\spf_code\cmake-build-debug" "C:\c study\spf_code\cmake-build-debug" "C:\c study\spf_code\cmake-build-debug\CMakeFiles\spfcode.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" E:\study\spf_code E:\study\spf_code E:\study\spf_code\cmake-build-debug E:\study\spf_code\cmake-build-debug E:\study\spf_code\cmake-build-debug\CMakeFiles\spfcode.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/spfcode.dir/depend
 

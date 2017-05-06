@@ -27,6 +27,7 @@ public:
     void proc_state_sub(TRscMsgHdr * rschead , TRscMsgBody * rscbody); //处理subscribe消息
     vector<SerTreeNode* > searchNodeList(string topic); //添加订阅  若无结点则创建结点 若存在结点则返回结点列表
     void add_clientid(vector<SerTreeNode *> & vecst,string clientid);//添加订阅者
+    void remove_clientid(vector<SerTreeNode *> & vecst,string clientid); //移除订阅者
 
     //for publish 搜索 客户结点
     set<string >  getClientForP(string topic); //对外提供 将下面两个方法合为一种
@@ -37,7 +38,7 @@ public:
 
 private:
     ServiceTask * proxy;
-    set <string > * substateset; //存放subscribe state消息
+    set <string > * substateset; //存放subscribe state消息 避免重复消息的处理
     UtilService * us; //工具类对象
     SerTreeNode * root; //root结点
 };

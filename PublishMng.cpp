@@ -9,7 +9,7 @@ PublishMng::PublishMng(ServiceTask * p) {
     us=new UtilService();
     msg_map = new map <string ,PublishMsg * > ();
     stateSet = new set<string > ();
-
+    topic_map =new map<string,string>();
 }
 
 PublishMng::~PublishMng(){
@@ -24,6 +24,7 @@ PublishMng::~PublishMng(){
     msg_map->clear();
     delete msg_map;
     delete stateSet;
+    delete topic_map;
 
 
 }
@@ -143,7 +144,7 @@ void PublishMng :: proc_msg_notifyack(string msgid,string to) { //需要知道�
 
 /*
     state:{
-       topic: "abc/def/ghi",
+       topic: "/abc/def/ghi",
        content : "my first topic"
     }
  */
@@ -152,8 +153,10 @@ void PublishMng :: proc_state_pub(TRscMsgHdr * rschdr ,TRscMsgBody * rscbody){
     string rid  = rschdr->rid;
     string str  = rscbody->rsc;
     string from = rschdr->consumer;
+    string originalid=rid;
 
     set <string >  :: iterator tmp1;
+    rid=from+"_"+rid;
     tmp1=stateSet->find(rid);
     if(tmp1!=stateSet->end()){ //find it no proc
 
@@ -188,17 +191,18 @@ void PublishMng :: proc_state_pub(TRscMsgHdr * rschdr ,TRscMsgBody * rscbody){
                 set <string > :: iterator itbegin=clientSet.begin();
                 set <string > :: iterator itend=clientSet.end();
                 for(;itbegin!=itend;itbegin++){
-                    //生成新的publish消息
-                    JSONObject newJsonObject;
-                    JSONObject innerJsobj;
-                    innerJsobj[L"topic"]=new (std::nothrow) JSONValue(us->s2ws(topic));
-                    innerJsobj[L"content"]=new (std::nothrow) JSONValue(us->s2ws(content));
-                    //JSONValue res=innerJsobj;
-                    newJsonObject[L"state"]=new (std::nothrow) JSONValue(innerJsobj);
-                    JSONValue res=newJsonObject;
-                    //res.Stringify();
-                    std::wstring resstr=res.Stringify().c_str();
-                    string jsoncontent = us->ws2s(resstr); //body 内容
+                   //将publish消息下发，区别在于需要储存消息内容
+                   //一个topic对应的内容应该是一样的 所以需要按topic为key去存储内容 推送的时候以topic为核心取数据
+                   //发送队列 msgid 为 from+rid 后面多一个 & topic 使得分解时 可以知道topic 从而知道内容
+                    (*topic_map)[topic]=str;
+                    string to=*itbegin; //取出目标 userid
+                    int res = proxy->send_map_add(to,"msg","publishack",rid,topic); //rid 是否包含from local已经处理过了
+                    if(res==1){
+                        proxy->get_uaip(to); //查询地址
+                    }
+                    else{ //防止内部失败也要查询
+
+                    }
 
                 }
             }
