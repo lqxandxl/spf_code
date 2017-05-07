@@ -6,7 +6,6 @@
 #define SPFCODE_TREENODE_H
 #include <string>
 #include <vector>
-
 #include <set>
 
 using namespace std;
@@ -22,7 +21,6 @@ public:
 
     string singleTopic; //结点当前内容
     vector<SerTreeNode* > childList;  //孩子结点
-    //vector<Subscription> clientList;  //订阅者列表 clientid
     set <string >  clientSet;
     SerTreeNode * parent; //父结点
 

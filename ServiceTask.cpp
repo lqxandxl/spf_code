@@ -85,7 +85,7 @@ void ServiceTask ::procMsg(TRscMsgHdr *rschdr, TRscMsgBody * rscbody,int msgType
               proc_uaip(rschdr,rscbody);
         }
         else if((*topicVec)[1]=="satip"){
-
+              proc_satip(rschdr,rscbody);
         }
         return;
     }
@@ -542,7 +542,9 @@ void ServiceTask :: proc_satip(TRscMsgHdr * head , TRscMsgBody * body){ //处理
             for(;itbegin!=itend;itbegin++){
                 string tmps=*itbegin;  //tmps 在这里是一长串msgid
                 vector<string> * msgvec=us->splitTopic(tmps,'_');
-                if(msgvec->size()<=3){
+                map<string,TUniNetMsg*> :: iterator itmsg;
+                itmsg = local_map->find(tmps);
+                if(msgvec->size()<=3||itmsg==local_map->end()){ //或者没找到该有的消息则跳过
                     readytodel->push_back(tmps);
                     delete msgvec;
                     continue;
@@ -552,12 +554,15 @@ void ServiceTask :: proc_satip(TRscMsgHdr * head , TRscMsgBody * body){ //处理
                     string msgtype=(*msgvec)[1];
                     string fromid=(*msgvec)[2];
                     string rid=(*msgvec)[3];
+                    TUniNetMsg * unimsg=itmsg->second;
                     if(servicename=="state"){
                         if(msgtype=="subscribe"){ //need to send notify
                             vector<string > * ipvec=us->splitTopic(satip,':');
                             if(local_ip==(*ipvec)[0]){ //本机
                                 //Tunitmsg转换
                                 //proc_state_sub(head,body); 直接处理消息
+                                delete unimsg;
+
                             }
                             //通过tmps取出消息后 将ruri修改为/service/state/remote
                             //rid consumer都还在 不做区分 真正处理时再和一起
@@ -572,6 +577,7 @@ void ServiceTask :: proc_satip(TRscMsgHdr * head , TRscMsgBody * body){ //处理
                             vector<string > * ipvec=us->splitTopic(satip,':');
                             if(local_ip==(*ipvec)[0]){ //本机
                                 //proc_state_pub(head,body); 直接处理消息
+                                delete unimsg;
                             }
                             //send msg 需要msgid userid
 
@@ -580,6 +586,7 @@ void ServiceTask :: proc_satip(TRscMsgHdr * head , TRscMsgBody * body){ //处理
                             delete ipvec;
                         }
                     }
+                    local_map->erase(tmps);
                 }
 
                 delete msgvec;

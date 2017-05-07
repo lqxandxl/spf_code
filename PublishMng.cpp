@@ -148,7 +148,7 @@ void PublishMng :: proc_msg_notifyack(string msgid,string to) { //需要知道�
        content : "my first topic"
     }
  */
-void PublishMng :: proc_state_pub(TRscMsgHdr * rschdr ,TRscMsgBody * rscbody){
+void PublishMng :: proc_state_pub(TRscMsgHdr * rschdr , TRscMsgBody * rscbody){
 
     string rid  = rschdr->rid;
     string str  = rscbody->rsc;
