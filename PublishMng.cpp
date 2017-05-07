@@ -196,7 +196,7 @@ void PublishMng :: proc_state_pub(TRscMsgHdr * rschdr ,TRscMsgBody * rscbody){
                    //发送队列 msgid 为 from+rid 后面多一个 & topic 使得分解时 可以知道topic 从而知道内容
                     (*topic_map)[topic]=str;
                     string to=*itbegin; //取出目标 userid
-                    int res = proxy->send_map_add(to,"msg","publishack",rid,topic); //rid 是否包含from local已经处理过了
+                    int res = proxy->send_map_add(to,"state","publish",rid,topic); //rid 包含from local已经处理过了
                     if(res==1){
                         proxy->get_uaip(to); //查询地址
                     }
@@ -211,4 +211,11 @@ void PublishMng :: proc_state_pub(TRscMsgHdr * rschdr ,TRscMsgBody * rscbody){
     }
 }
 
-
+string PublishMng ::get_publish_body(string topic){
+    map<string ,string> :: iterator  it;
+    it=topic_map->find(topic);
+    if(it!=topic_map->end()){
+        return it->second;
+    }
+    else return "";
+}

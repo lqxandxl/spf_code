@@ -110,37 +110,41 @@ void ServiceTask ::procMsg(TRscMsgHdr *rschdr, TRscMsgBody * rscbody,int msgType
                 else if ((*topicVec)[1] == "state") {
                     if (topicVec->size() < 3) return;
                     if ((*topicVec)[2] == "local") {
-                        //查询归属骨干卫星
-                        get_satip(rschdr->consumer);
+                        string from=rschdr->consumer;
+                        string msgid=rschdr->rid;
                         //local消息一概不处理 放入队列
                         //收到sat内容后，再分类去相应模块处理 或转发
                         string tmp1 = "state";
-                        string name = tmp1 + "_" + "publish" + "_" + rschdr->consumer + "_" + rschdr->rid; //生成一个唯一标识
+                        string name = tmp1 + "_" + "publish" + "_" + from + "_" + msgid; //生成一个唯一标识
                         (*local_map)[name] = unimsg;
 
                         //再用一个以userid为key的map<userid,set<name>> 加速后面的查找
                         map<string, set<string> *>::iterator itacc;
-                        itacc = acc_map->find(rschdr->consumer);
+                        itacc = acc_map->find(from);
                         if (itacc != acc_map->end()) { //find it
                             set<string> *tmpaccset = itacc->second;
                             tmpaccset->insert(name);
                         } else {
-                            (*acc_map)[rschdr->consumer] = new set<string>();
+                            (*acc_map)[from] = new set<string>();
                             map<string, set<string> *>::iterator tmpacc;
-                            tmpacc = acc_map->find(rschdr->consumer);
+                            tmpacc = acc_map->find(from);
                             set<string> *tmpaccset = tmpacc->second;
                             tmpaccset->insert(name);
                         }
 
+                        //查询归属骨干卫星
+                        get_satip(from);
+                        //回复用户收到了local请求
+                        int res = send_map_add(from,"state","publishack",msgid); //ack
+                        if(res==1){
+                            get_uaip(from); //查询地址
+                        }
+                        else{ //防止内部失败也要查询
 
+                        }
                     } else if ((*topicVec)[2] == "remote") {
-
                         proc_state_pub(rschdr, rscbody);
-
-                        //send puback
-
                     }
-
                 }
 
 
@@ -155,35 +159,39 @@ void ServiceTask ::procMsg(TRscMsgHdr *rschdr, TRscMsgBody * rscbody,int msgType
                 } else if ((*topicVec)[1] == "state") {
                     if (topicVec->size() < 3) return;
                     if ((*topicVec)[2] == "local") {
-                        //查询归属骨干卫星
-                        get_satip(rschdr->consumer);
+                        string from=rschdr->consumer;
+                        string msgid=rschdr->rid;
                         //local消息一概不处理 放入队列
                         //收到sat内容后，再分类去相应模块处理 或转发
                         string tmp1 = "state";
-                        string name = tmp1 + "_" + "subscirbe" + "_" + rschdr->consumer + "_" + rschdr->rid; //生成一个唯一标识
+                        string name = tmp1 + "_" + "subscribe" + "_" + from + "_" + msgid; //生成一个唯一标识
                         (*local_map)[name] = unimsg;
 
                         //再用一个以userid为key的map<userid,set<name>> 加速后面的查找
                         map<string, set<string> *>::iterator itacc;
-                        itacc = acc_map->find(rschdr->consumer);
+                        itacc = acc_map->find(from);
                         if (itacc != acc_map->end()) { //find it
                             set<string> *tmpaccset = itacc->second;
                             tmpaccset->insert(name);
                         } else {
-                            (*acc_map)[rschdr->consumer] = new set<string>();
+                            (*acc_map)[from] = new set<string>();
                             map<string, set<string> *>::iterator tmpacc;
-                            tmpacc = acc_map->find(rschdr->consumer);
+                            tmpacc = acc_map->find(from);
                             set<string> *tmpaccset = tmpacc->second;
                             tmpaccset->insert(name);
                         }
+                        //查询归属骨干卫星
+                        get_satip(from);
+                        //回复用户收到了local请求
+                        int res = send_map_add(from,"state","subscribeack",msgid); //ack
+                        if(res==1){
+                            get_uaip(from); //查询地址
+                        }
+                        else{ //防止内部失败也要查询
 
-
+                        }
                     } else if ((*topicVec)[2] == "remote") {
-
                         proc_state_sub(rschdr, rscbody);
-
-                        //send suback
-
                     }
 
                 }
@@ -222,13 +230,7 @@ void ServiceTask ::procMsg(TRscMsgHdr *rschdr, TRscMsgBody * rscbody,int msgType
     }
 
     delete topicVec; //free vec
-
-
-
-
     return;
-
-
 }
 
 
@@ -431,19 +433,44 @@ void ServiceTask :: proc_uaip(TRscMsgHdr * head , TRscMsgBody * body){
                          }
                          else if(msgtype=="publishack"){
                              //send msg 需要msgid userid
-
-
-
                              //send msg
                              readytodel->push_back(tmps);//将要删除的值存入vector 后面集体删除
                          }
                     }
                     else if(servicename=="state"){
-                        if(msgtype=="subscribeack"){
-                              //有msgid  有userid
-                              //send msg
+                        if(msgtype=="publish"){//publish 消息要下发到订阅的用户
+                             if(msgvec->size()<=3){
+                                readytodel->push_back(tmps);
+                                delete msgvec;
+                                continue;
+                             }
+                             else{
+                                string topic=(*msgvec)[3];
+                                PublishMng * tmppub=getPubMng();
+                                string body=tmppub->get_publish_body(topic); //取得内容
+                                if(body.length()==0){
+                                    readytodel->push_back(tmps);
+                                    delete msgvec;
+                                    continue;
+                                }
+                                else{
+                                    //send msg
 
-                              //send msg
+                                    //send msg
+                                }
+
+
+                             }
+                        }
+                        else if(msgtype=="publishack"){
+                            //rid
+                            //send msg
+
+                        }
+                        else if(msgtype=="subscribeack"){
+                            //rid
+                            //send msg
+
                         }
                     }
                 }
@@ -529,33 +556,28 @@ void ServiceTask :: proc_satip(TRscMsgHdr * head , TRscMsgBody * body){ //处理
                         if(msgtype=="subscribe"){ //need to send notify
                             vector<string > * ipvec=us->splitTopic(satip,':');
                             if(local_ip==(*ipvec)[0]){ //本机
-
+                                //Tunitmsg转换
                                 //proc_state_sub(head,body); 直接处理消息
-
                             }
-                            delete ipvec;
                             //通过tmps取出消息后 将ruri修改为/service/state/remote
                             //rid consumer都还在 不做区分 真正处理时再和一起
                             //send msg
 
                             //发送完从消息队列中移除消息
                             readytodel->push_back(tmps);
+                            delete ipvec;
                         }
                         else if(msgtype=="publish"){
                             //通过tmps取出消息后 将ruri修改为/service/state/remote
                             vector<string > * ipvec=us->splitTopic(satip,':');
                             if(local_ip==(*ipvec)[0]){ //本机
-
                                 //proc_state_pub(head,body); 直接处理消息
-
                             }
-                            delete ipvec;
-
-
                             //send msg 需要msgid userid
 
                             //send msg
                             readytodel->push_back(tmps);//将要删除的值存入vector 后面集体删除
+                            delete ipvec;
                         }
                     }
                 }
