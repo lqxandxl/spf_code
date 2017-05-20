@@ -28,6 +28,7 @@ public:
     vector<SerTreeNode* > searchNodeList(string topic); //添加订阅  若无结点则创建结点 若存在结点则返回结点列表
     void add_clientid(vector<SerTreeNode *> & vecst,string clientid);//添加订阅者
     void remove_clientid(vector<SerTreeNode *> & vecst,string clientid); //移除订阅者
+    vector<SerTreeNode*> getParents(SerTreeNode* current); //拿到其父亲们的结点，不包括root
 
     //for publish 搜索 客户结点
     set<string >  getClientForP(string topic); //对外提供 将下面两个方法合为一种

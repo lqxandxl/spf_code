@@ -194,6 +194,7 @@ void PublishMng :: proc_state_pub(TRscMsgHdr * rschdr , TRscMsgBody * rscbody){
                    //将publish消息下发，区别在于需要储存消息内容
                    //一个topic对应的内容应该是一样的 所以需要按topic为key去存储内容 推送的时候以topic为核心取数据
                    //发送队列 msgid 为 from+rid 后面多一个 & topic 使得分解时 可以知道topic 从而知道内容
+                    cout<<"need to send publish state to "<<*itbegin<<endl;
                     (*topic_map)[topic]=str;
                     string to=*itbegin; //取出目标 userid
                     int res = proxy->send_map_add(to,"state","publish",rid,topic); //rid 包含from local已经处理过了

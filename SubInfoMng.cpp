@@ -140,7 +140,30 @@ set<string > SubInfoMng ::  get_clientid(vector<SerTreeNode* > & vec){
 set<string >  SubInfoMng :: getClientForP(string topic) { //对外提供 将上面两个方法合为一种
      vector < SerTreeNode * > vec= PSearchNodeList ( topic );
      set<string > res = get_clientid(vec);
+     if(vec.size()>0){
+         vector<SerTreeNode *> vec2=getParents(vec[0]);
+         set<string> res2=get_clientid(vec2);
+         set<string>::iterator itbegin=res2.begin();
+         set<string>::iterator itend=res2.end();
+         for(;itbegin!=itend;itbegin++){
+             res.insert(*itbegin); //把父亲结点的客户们加进来
+         }
+     }
      return res;
+}
+
+vector<SerTreeNode*> SubInfoMng ::getParents(SerTreeNode* current){
+     vector<SerTreeNode*> parents;//仅仅添加路径上的所有父亲
+     SerTreeNode* tmp1=NULL;
+     if(current!=root){
+         tmp1=current->parent;
+         while(tmp1!=root&&tmp1!=NULL){
+               parents.push_back(tmp1);
+               tmp1=tmp1->parent;
+         }
+     }
+    return parents;
+
 }
 
 /*
@@ -162,6 +185,7 @@ void SubInfoMng::proc_state_sub(TRscMsgHdr * rschead , TRscMsgBody * rscbody){
       string str = rscbody->rsc;
       set <string >  :: iterator tmp1;
       rid=clientid+"_"+rid; //避免不同客户端冲突
+      cout<<"rid is "<<rid<<endl;
       tmp1=substateset->find(rid);
       string topic;
       int isdelete=-1;
@@ -169,7 +193,7 @@ void SubInfoMng::proc_state_sub(TRscMsgHdr * rschead , TRscMsgBody * rscbody){
 
       }
       else{
-
+      cout<<"proc"<<endl;
         substateset->insert(rid);
         //通过主题查找要发给谁
         JSONValue *recjv = JSON::Parse(str.c_str());
@@ -191,6 +215,10 @@ void SubInfoMng::proc_state_sub(TRscMsgHdr * rschead , TRscMsgBody * rscbody){
             if (isdelete == 0) {
                 vector<SerTreeNode *> vec = searchNodeList(topic); //创建订阅结点
                 add_clientid(vec, clientid);//添加订阅者
+                if(vec.size()>0) { //防止越界,给父亲结点也添加订阅者
+                    vector<SerTreeNode *> vec2 = getParents(vec[0]);
+                    add_clientid(vec2, clientid);//添加订阅者
+                }
             }
             else { //执行删除订阅逻辑
                 vector<SerTreeNode *> vec = searchNodeList(topic); //创建订阅结点
