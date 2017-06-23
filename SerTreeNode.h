@@ -1,6 +1,7 @@
 //
 // Created by dell on 2017/3/24.
 //
+//for state
 
 #ifndef SPFCODE_TREENODE_H
 #define SPFCODE_TREENODE_H

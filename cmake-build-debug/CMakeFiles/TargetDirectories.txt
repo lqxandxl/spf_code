@@ -1,3 +1,0 @@
-E:/study/spf_code/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-E:/study/spf_code/cmake-build-debug/CMakeFiles/spfcode.dir
-E:/study/spf_code/cmake-build-debug/CMakeFiles/edit_cache.dir

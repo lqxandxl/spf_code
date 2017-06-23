@@ -1,7 +1,3 @@
-//
-// Created by dell on 2017/4/6.
-//
-
 #ifndef SPFCODE_NTFMNG_H
 #define SPFCODE_NTFMNG_H
 
@@ -26,4 +22,5 @@ private:
     map <string , NotifyMsg * > * ntfmap; //管理离线消息的结构
     UtilService * us;
 };
+
 #endif //SPFCODE_NTFMNG_H

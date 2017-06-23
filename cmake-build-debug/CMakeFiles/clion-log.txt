@@ -1,8 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2017.1.1\bin\cmake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" E:\study\spf_code
--- Configuring done
-CMake Error at CMakeLists.txt:10 (add_executable):
-  CXX_STANDARD is set to invalid value '9'
-
-
--- Generating done
--- Build files have been written to: E:/study/spf_code/cmake-build-debug

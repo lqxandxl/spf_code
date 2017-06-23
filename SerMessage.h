@@ -1,7 +1,3 @@
-//
-// Created by dell on 2017/3/24.
-//
-
 #ifndef SPFCODE_MESSAGE_H
 #define SPFCODE_MESSAGE_H
 
@@ -32,9 +28,6 @@ public:
     string publishmsgid;//属于哪个publish生成的notify
     string body; //body存放内容
 };
-
-
-
 
 
 #endif //SPFCODE_MESSAGE_H
